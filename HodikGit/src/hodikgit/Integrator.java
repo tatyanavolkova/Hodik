@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package hodik;
+package hodikgit;
 import java.util.*;
 import javax.swing.*;
 /**
