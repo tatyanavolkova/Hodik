@@ -15,10 +15,8 @@ public class HodikGit {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.print("Hello from git!");
-        System.out.print("Hi!");
-        System.out.print("Hi from Tatyana!");
-        System.out.print("Hi from Volkova!"); 
+            Integrator i = new Integrator();
+            LoginFrm logfr=new LoginFrm(i);
+             logfr.setVisible(true); 
     }
 }

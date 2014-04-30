@@ -5,7 +5,7 @@
  */
 
 package hodikgit;
-import hodik.MainFrm;
+import hodikgit.MainFrm;
 
 /**
  *

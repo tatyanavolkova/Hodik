@@ -16,9 +16,9 @@ public class Hodik {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            Integrator i = new Integrator();
-            LoginFrm logfr=new LoginFrm(i);
-             logfr.setVisible(true);
+       //     Integrator i = new Integrator();
+       //     LoginFrm logfr=new LoginFrm(i);
+       //      logfr.setVisible(true);
       
              }
     
