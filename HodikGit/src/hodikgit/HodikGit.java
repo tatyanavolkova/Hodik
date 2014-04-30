@@ -17,5 +17,7 @@ public class HodikGit {
         // TODO code application logic here
         System.out.print("Hello from git!");
         System.out.print("Hi!");
+        System.out.print("Hi from Tatyana!");
+        
     }
 }
