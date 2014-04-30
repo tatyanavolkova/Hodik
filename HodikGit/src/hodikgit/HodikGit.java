@@ -16,5 +16,6 @@ public class HodikGit {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.print("Hello from git!");
+        System.out.print("Hi!");
     }
 }
