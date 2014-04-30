@@ -18,8 +18,6 @@ public class HodikGit {
         System.out.print("Hello from git!");
         System.out.print("Hi!");
         System.out.print("Hi from Tatyana!");
-        System.out.print("Hi from Volkova!");
-        
-        
+        System.out.print("Hi from Volkova!"); 
     }
 }
