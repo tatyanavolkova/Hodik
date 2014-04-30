@@ -7,6 +7,7 @@ package hodikgit;
 /**
  *
  * @author user
+ * апрапр
  */
 public class HodikGit {
 
