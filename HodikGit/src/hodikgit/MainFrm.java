@@ -8,6 +8,7 @@ package hodikgit;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import java.io.*;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
@@ -128,6 +129,12 @@ public class MainFrm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         LaunchButton.setText("Launch");
+        LaunchButton.setName("launchButton"); // NOI18N
+        LaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaunchButtonActionPerformed(evt);
+            }
+        });
 
         ProgBox.setToolTipText("");
 
@@ -270,6 +277,12 @@ public class MainFrm extends javax.swing.JFrame {
     private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LoadButtonActionPerformed
+
+    private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
+        // TODO add your handling code here:
+        JFrame myWindow = new GameWindow();
+        myWindow.setVisible(true);
+    }//GEN-LAST:event_LaunchButtonActionPerformed
 
     /**
      * @param args the command line arguments
