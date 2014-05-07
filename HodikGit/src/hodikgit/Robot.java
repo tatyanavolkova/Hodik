@@ -39,14 +39,18 @@ public class Robot {
     void rb_launch_prog(ArrayList<File> languages, int i)
     {
         System.out.println("Здесь выбирается программа из списка программ");
+        //return languages.get(i);
     }
     void rb_add_prog(ArrayList<File> languages, int n)
+        //можно переделать под ввод с клавиатуры или считывать из файла
     {
         System.out.println("Здесь создаётся новая программа и добавляется в список программ");
+      //  languages.add(new_prog);
     }
     void rb_del_prog(ArrayList<File> languages, int i)
     {
         System.out.println("Здесь удаляется программа из списка программ");
+        //languages.remove(i);
     }
     
     
