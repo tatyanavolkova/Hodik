@@ -5,6 +5,8 @@
  */
 
 package hodikgit;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Vector;
 /**
  *
@@ -13,16 +15,15 @@ import java.util.Vector;
 public class Robot {
     String rb_name;
     int FreqVal;
-    ////////////////////
     Interpretator curr;
-    Vector<String> programs = new Vector<String>();
-    
+    ArrayList<File> languages;
     
     
     
     public Robot(String name, int val){
         this.rb_name = name;
         this.FreqVal = val;
+        languages=new <File>ArrayList();
     }
     
     void rb_show_info (){
@@ -35,15 +36,15 @@ public class Robot {
         Interpretator a = new Interpretator();
         return a;
     }
-    void rb_launch_prog(Vector programs, int i)
+    void rb_launch_prog(ArrayList<File> languages, int i)
     {
         System.out.println("Здесь выбирается программа из списка программ");
     }
-    void rb_add_prog(Vector programs, int n)
+    void rb_add_prog(ArrayList<File> languages, int n)
     {
         System.out.println("Здесь создаётся новая программа и добавляется в список программ");
     }
-    void rb_del_prog(Vector programs, int i)
+    void rb_del_prog(ArrayList<File> languages, int i)
     {
         System.out.println("Здесь удаляется программа из списка программ");
     }
