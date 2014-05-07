@@ -7,6 +7,8 @@
 package hodikgit;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import java.io.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author Lenovo
@@ -21,7 +23,7 @@ public class MainFrm extends javax.swing.JFrame {
        // System.out.print(integr.RobCollection.size());
         
         for(int i=0;i<integr.RobCollection.size();i++)
-           this.RobotBox.addItem(integr.RobCollection.get(i).RName);
+           this.RobotBox.addItem(integr.RobCollection.get(i).rb_name);
         
     }
 
@@ -142,6 +144,11 @@ public class MainFrm extends javax.swing.JFrame {
                 LoadButtonMouseClicked(evt);
             }
         });
+        LoadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoadButtonActionPerformed(evt);
+            }
+        });
 
         RobotButton.setText("Create new Robot");
         RobotButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,17 +212,22 @@ public class MainFrm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadButtonMouseClicked
-        //        BufferedReader reader = null;
+        //BufferedReader reader = null;
         FChoose = new JFileChooser();
-        //        FileNameExtensionFilter filter = new FileNameExtensionFilter(
-            //        "JPG & GIF Images", "jpg", "gif");
-        //        jFileChooser1.setFileFilter(filter);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Hodik's file extension", "hdk");
+        FChoose.setFileFilter(filter);
         int returnVal; //APPROVE_OPTION returns int value
         returnVal = FChoose.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             System.out.println("You chose to open this file: " + FChoose.getSelectedFile().getName());
             FChoose.setSize(300, 300);
             FChoose.setVisible(true);
+            integr.languages.add(FChoose.getSelectedFile());
+            File f;
+            f=FChoose.getSelectedFile();
+            int index = integr.languages.indexOf(f);
+            this.ProgBox.addItem(integr.languages.get(index).getName());
+            
     }//GEN-LAST:event_LoadButtonMouseClicked
     }
     private void RobotButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RobotButtonMouseClicked
@@ -240,7 +252,7 @@ public class MainFrm extends javax.swing.JFrame {
             integr.RobCollection.add(r);
 
             int index = integr.RobCollection.indexOf(r);
-            this.RobotBox.addItem(integr.RobCollection.get(index).RName);
+            this.RobotBox.addItem(integr.RobCollection.get(index).rb_name);
 
             CrFrm.setVisible(false);
             RNameField.setText(null);
@@ -254,6 +266,10 @@ public class MainFrm extends javax.swing.JFrame {
         CrFrm.setVisible(false);
        
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoadButtonActionPerformed
 
     /**
      * @param args the command line arguments
