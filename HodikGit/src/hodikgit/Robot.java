@@ -35,17 +35,21 @@ public class Robot {
         Interpretator a = new Interpretator();
         return a;
     }
-    void rb_launch_prog(Vector programs, int i)
+    String rb_launch_prog(Vector<String> programs, int i)
     {
         System.out.println("Здесь выбирается программа из списка программ");
+        return programs.get(i);
     }
-    void rb_add_prog(Vector programs, int n)
+    void rb_add_prog(Vector<String> programs, String new_prog)
+    //можно переделать под ввод с клавиатуры или считывать из файла
     {
         System.out.println("Здесь создаётся новая программа и добавляется в список программ");
+        programs.add(new_prog);
     }
-    void rb_del_prog(Vector programs, int i)
+    void rb_del_prog(Vector<String> programs, int i)
     {
         System.out.println("Здесь удаляется программа из списка программ");
+        programs.remove(i);
     }
     
     
