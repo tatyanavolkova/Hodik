@@ -280,7 +280,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
-        JFrame myWindow = new GameWindow();
+        JFrame myWindow = new GameWindow(800,600);
         myWindow.setVisible(true);
     }//GEN-LAST:event_LaunchButtonActionPerformed
 
