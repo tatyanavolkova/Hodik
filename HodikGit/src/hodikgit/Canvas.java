@@ -10,18 +10,27 @@ import javax.swing.*;
  * @author user
  */
 public class Canvas extends JPanel {
+    int fieldSizeX;
+    int fieldSizeY;
+    int fieldCellSize;
+    int fieldLeftTopX;
+    int fieldLeftTopY;
     
+    Canvas(int fieldSizeX, int fieldSizeY, int fieldCellSize, int fieldLeftTopX, int fieldLeftTopY) {
+        this.fieldSizeX = fieldSizeX;
+        this.fieldSizeY = fieldSizeY;
+        this.fieldCellSize = fieldCellSize;
+        this.fieldLeftTopX = fieldLeftTopX;
+        this.fieldLeftTopY = fieldLeftTopY;
+    }
     public void paint(Graphics g) {
     super.paint(g);
     g.setColor(Color.black);
-    int Width = getSize().width;
-    int Height = getSize().height;
-    int initX = 50;
-    int initY = 50;
-    int size = 50;
-    for(int i=0;i<10;i++)
-        g.drawLine(initX, initY+size*i, size*10, initY + size*i);
-    for(int i=0;i<10;i++)
-        g.drawLine(initX+size*i, initY, initX+size*i, size*10);
+    for(int i=0;i<=fieldSizeY;i++)
+        g.drawLine(fieldLeftTopX, fieldLeftTopY+fieldCellSize*i, 
+                fieldLeftTopX+fieldCellSize*fieldSizeX, fieldLeftTopY + fieldCellSize*i);
+    for(int i=0;i<=fieldSizeX;i++)
+        g.drawLine(fieldLeftTopX+fieldCellSize*i, fieldLeftTopY, 
+                fieldLeftTopX+fieldCellSize*i, fieldLeftTopY+fieldCellSize*fieldSizeY);
   }
 }
