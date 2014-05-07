@@ -229,11 +229,18 @@ public class MainFrm extends javax.swing.JFrame {
             System.out.println("You chose to open this file: " + FChoose.getSelectedFile().getName());
             FChoose.setSize(300, 300);
             FChoose.setVisible(true);
-            integr.languages.add(FChoose.getSelectedFile());
-            File f;
-            f=FChoose.getSelectedFile();
-            int index = integr.languages.indexOf(f);
-            this.ProgBox.addItem(integr.languages.get(index).getName());
+            
+             System.out.println(RobotBox.getSelectedItem());
+//           //номер робота из коллекции роботов, который был выбран в комбобоксе
+//            int index= integr.RobCollection.indexOf(RobotBox.getSelectedItem());
+//            System.out.println("index = "+ index);
+//            //к роботу по его индексу мы добавляем язык из FChoose в его коллекцию программ
+//            integr.RobCollection.get(index).languages.add(FChoose.getSelectedFile());
+//            //теперь в комбобокс программ мы добывляем языки из коллекции выбранного робота
+//           for(int i=0; i<integr.RobCollection.get(index).languages.size();i++){
+//                this.ProgBox.addItem(integr.RobCollection.get(index).languages.get(i).getName());
+//            }
+//     
             
     }//GEN-LAST:event_LoadButtonMouseClicked
     }
@@ -280,7 +287,9 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
+
         JFrame myWindow = new GameWindow(800,600);
+
         myWindow.setVisible(true);
     }//GEN-LAST:event_LaunchButtonActionPerformed
 
