@@ -15,7 +15,7 @@ public class Robot {
     int FreqVal;
     ////////////////////
     Interpretator curr;
-    Vector programs = new Vector();
+    Vector<String> programs = new Vector<String>();
     
     
     
