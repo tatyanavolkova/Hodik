@@ -16,7 +16,6 @@ public class HodikGit {
      */
     public static void main(String[] args) {
             Integrator i = new Integrator();
-            LoginFrm logfr=new LoginFrm(i);
-             logfr.setVisible(true); 
+           
     }
 }

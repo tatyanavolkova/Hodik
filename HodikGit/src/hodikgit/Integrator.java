@@ -23,10 +23,9 @@ public class Integrator {
        // for(int i=0;i<this.RobCollection.size();i++)
        //     System.out.print(this.RobCollection.get(i).RName);
        //myfr = new MainFr(); 
-       //logfr=new LoginFrm();
-       //logfr.setVisible(true);
-       
-
+       LoginFrm logfr = new LoginFrm(this);
+       logfr.setVisible(true); 
+       logfr.setLocationRelativeTo(null);
         
         
     }

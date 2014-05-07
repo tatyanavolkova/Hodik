@@ -219,8 +219,9 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_LoadButtonMouseClicked
     }
     private void RobotButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RobotButtonMouseClicked
-        CrFrm.setSize(400, 200);
+        CrFrm.setSize(400, 250);
         CrFrm.setVisible(true);
+        CrFrm.setLocationRelativeTo(null);
     }//GEN-LAST:event_RobotButtonMouseClicked
 
     private void FreqSliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FreqSliderMouseDragged
@@ -251,6 +252,7 @@ public class MainFrm extends javax.swing.JFrame {
         RNameField.setText(null);
         FreqSlider.setValue(30);
         CrFrm.setVisible(false);
+       
     }//GEN-LAST:event_jButton3MouseClicked
 
     /**

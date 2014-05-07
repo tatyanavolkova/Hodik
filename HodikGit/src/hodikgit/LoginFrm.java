@@ -100,6 +100,7 @@ public class LoginFrm extends javax.swing.JFrame {
         this.setVisible(false);
         MainFrm mafr = new MainFrm (i);
         mafr.setVisible(true);
+        mafr.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_StartButtonMouseClicked
 
