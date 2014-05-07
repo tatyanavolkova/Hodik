@@ -23,7 +23,7 @@ public class MainFrm extends javax.swing.JFrame {
        // System.out.print(integr.RobCollection.size());
         
         for(int i=0;i<integr.RobCollection.size();i++)
-           this.RobotBox.addItem(integr.RobCollection.get(i).RName);
+           this.RobotBox.addItem(integr.RobCollection.get(i).rb_name);
         
     }
 
@@ -252,7 +252,7 @@ public class MainFrm extends javax.swing.JFrame {
             integr.RobCollection.add(r);
 
             int index = integr.RobCollection.indexOf(r);
-            this.RobotBox.addItem(integr.RobCollection.get(index).RName);
+            this.RobotBox.addItem(integr.RobCollection.get(index).rb_name);
 
             CrFrm.setVisible(false);
             RNameField.setText(null);
