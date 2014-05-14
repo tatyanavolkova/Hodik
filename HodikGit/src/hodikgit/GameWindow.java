@@ -10,9 +10,11 @@ import javax.swing.*;
  */
 
 public class GameWindow extends JFrame { 
+    Integrator integr;
     private Canvas c = new Canvas(7,10,50,50,50);
-    GameWindow(int windowWidth, int windowHeight){ 
+    GameWindow(int windowWidth, int windowHeight, Integrator i){ 
         super("Hodik"); 
+        integr=i;
         setDefaultCloseOperation(EXIT_ON_CLOSE); 
         setSize(windowWidth, windowHeight); 
         this.getContentPane().add(c);
