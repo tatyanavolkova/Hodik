@@ -7,9 +7,9 @@
 package hodikgit;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import java.io.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.lang.String;
 /**
  *
  * @author Lenovo
@@ -24,8 +24,14 @@ public class MainFrm extends javax.swing.JFrame {
        // System.out.print(integr.RobCollection.size());
         
         for(int i=0;i<integr.RobCollection.size();i++)
-           this.RobotBox.addItem(integr.RobCollection.get(i).rb_name);
-        
+          this.RobotBox.addItem(integr.RobCollection.get(i).rb_name);
+     
+   //   String NameItem = RobotBox.getSelectedItem().toString();  //имя робота, который был выбран в комбобоксе
+   //   Robot rObj = integr.rMap.get(NameItem); // получаем объект робота, по его имени
+   //   rObj.languages.add(FChoose.getSelectedFile()); //к роботу по его индексу мы добавляем язык из FChoose в его коллекцию программ
+   //    for(int i=0; i<rObj.languages.size();i++){
+   //         this.ProgBox.addItem(rObj.languages.get(i).getName());
+   //       }
     }
 
     /**
@@ -230,17 +236,15 @@ public class MainFrm extends javax.swing.JFrame {
             FChoose.setSize(300, 300);
             FChoose.setVisible(true);
             
-             System.out.println(RobotBox.getSelectedItem());
-//           //номер робота из коллекции роботов, который был выбран в комбобоксе
-//            int index= integr.RobCollection.indexOf(RobotBox.getSelectedItem());
-//            System.out.println("index = "+ index);
-//            //к роботу по его индексу мы добавляем язык из FChoose в его коллекцию программ
-//            integr.RobCollection.get(index).languages.add(FChoose.getSelectedFile());
-//            //теперь в комбобокс программ мы добывляем языки из коллекции выбранного робота
-//           for(int i=0; i<integr.RobCollection.get(index).languages.size();i++){
-//                this.ProgBox.addItem(integr.RobCollection.get(index).languages.get(i).getName());
-//            }
-//     
+        
+       String NameItem = RobotBox.getSelectedItem().toString();  //имя робота, который был выбран в комбобоксе
+       Robot rObj = integr.rMap.get(NameItem); // получаем объект робота, по его имени
+       rObj.languages.add(FChoose.getSelectedFile()); //к роботу по его индексу мы добавляем язык из FChoose в его коллекцию программ
+       int index = rObj.languages.indexOf(FChoose.getSelectedFile()); // получаем номер выбранного файла в коллекции языков выбранного робота
+       this.ProgBox.addItem(rObj.languages.get(index).getName()); // добавляем в комбобокс программ язык из коллекции выбранного робота
+       
+       
+    
             
     }//GEN-LAST:event_LoadButtonMouseClicked
     }
@@ -289,8 +293,9 @@ public class MainFrm extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         JFrame myWindow = new GameWindow(800,600);
-
         myWindow.setVisible(true);
+        
+        
     }//GEN-LAST:event_LaunchButtonActionPerformed
 
     /**
