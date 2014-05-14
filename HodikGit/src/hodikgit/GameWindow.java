@@ -11,7 +11,7 @@ import javax.swing.*;
 
 public class GameWindow extends JFrame { 
     Integrator integr;
-    private Canvas c = new Canvas(7,10,50,50,50);
+    private Canvas c = new Canvas(7,10,50,50,50, integr);
     GameWindow(int windowWidth, int windowHeight, Integrator i){ 
         super("Hodik"); 
         integr=i;
