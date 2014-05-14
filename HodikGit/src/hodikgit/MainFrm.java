@@ -307,10 +307,10 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void RobotBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RobotBoxItemStateChanged
          String NameItem = RobotBox.getSelectedItem().toString();  //имя робота, который был выбран в комбобоксе
-   //   Robot rObj = integr.rMap.get(NameItem); // получаем объект робота, по его имени
-   //   rObj.languages.add(FChoose.getSelectedFile()); //к роботу по его индексу мы добавляем язык из FChoose в его коллекцию программ
-   //    for(int i=0; i<rObj.languages.size();i++){
-   //         this.ProgBox.addItem(rObj.languages.get(i).getName());
+        Robot rObj = integr.rMap.get(NameItem); // получаем объект робота, по его имени
+            this.ProgBox.removeAllItems();//очищаем ComboBox с программами для загрузки новых
+            for(int i=0; i<rObj.languages.size();i++){
+                this.ProgBox.addItem(rObj.languages.get(i).getName());}
     }//GEN-LAST:event_RobotBoxItemStateChanged
 
     /**
