@@ -226,13 +226,13 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void LoadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadButtonMouseClicked
         //BufferedReader reader = null;
-        FChoose = new JFileChooser();
+        FChoose = new JFileChooser();//создаем объект для выбора файлов
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Hodik's file extension", "hdk");
-        FChoose.setFileFilter(filter);
+        FChoose.setFileFilter(filter);//устанавливаем фильтр для выбора файлов только с расширением hdk
         int returnVal; //APPROVE_OPTION returns int value
         returnVal = FChoose.showOpenDialog(null);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
-            System.out.println("You chose to open this file: " + FChoose.getSelectedFile().getName());
+        if(returnVal == JFileChooser.APPROVE_OPTION) {//проверяем нажал ли человек ок
+            System.out.println("You chose to open this file: " + FChoose.getSelectedFile().getName());//вывод имени файла в консоль
             FChoose.setSize(300, 300);
             FChoose.setVisible(true);
             
