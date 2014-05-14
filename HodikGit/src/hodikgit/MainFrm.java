@@ -277,8 +277,7 @@ public class MainFrm extends javax.swing.JFrame {
             Robot r = new Robot(NameValue,FreqValue);
             integr.rMap.put(NameValue, r);
 
-           this.RobotBox.addItem(integr.rMap.get(r).rb_name);
-
+           this.RobotBox.addItem(NameValue);    
             CrFrm.setVisible(false);
             RNameField.setText(null);
             FreqSlider.setValue(30);
