@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.lang.String;
+import java.util.*;
 /**
  *
  * @author Lenovo
@@ -21,10 +22,12 @@ public class MainFrm extends javax.swing.JFrame {
     public MainFrm(Integrator a) {
         initComponents();
         integr = a;
-       // System.out.print(integr.RobCollection.size());
-        
-        for(int i=0;i<integr.RobCollection.size();i++)
-          this.RobotBox.addItem(integr.RobCollection.get(i).rb_name);
+       
+            
+          for(Map.Entry<String, Robot> e: integr.rMap.entrySet()){   //при запуске формы,
+              //мы подгружаем в RobotBox имена имеющихсЯ роботов
+          this.RobotBox.addItem(e.getKey());
+          }
      
    //   String NameItem = RobotBox.getSelectedItem().toString();  //имя робота, который был выбран в комбобоксе
    //   Robot rObj = integr.rMap.get(NameItem); // получаем объект робота, по его имени
@@ -147,6 +150,11 @@ public class MainFrm extends javax.swing.JFrame {
         ListProgLabel.setText("List of Programmes");
 
         RobotBox.setToolTipText("");
+        RobotBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                RobotBoxItemStateChanged(evt);
+            }
+        });
 
         ListRobLabel.setText("List of Robots");
 
@@ -267,10 +275,9 @@ public class MainFrm extends javax.swing.JFrame {
         }
         else {
             Robot r = new Robot(NameValue,FreqValue);
-            integr.RobCollection.add(r);
+            integr.rMap.put(NameValue, r);
 
-            int index = integr.RobCollection.indexOf(r);
-            this.RobotBox.addItem(integr.RobCollection.get(index).rb_name);
+           this.RobotBox.addItem(integr.rMap.get(r).rb_name);
 
             CrFrm.setVisible(false);
             RNameField.setText(null);
@@ -297,6 +304,10 @@ public class MainFrm extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_LaunchButtonActionPerformed
+
+    private void RobotBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RobotBoxItemStateChanged
+        
+    }//GEN-LAST:event_RobotBoxItemStateChanged
 
     /**
      * @param args the command line arguments

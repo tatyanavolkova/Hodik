@@ -12,20 +12,16 @@ import javax.swing.*;
  * @author Оля
  */
 public class Integrator {
-    ArrayList<Robot> RobCollection;
-    Map<String, Robot> rMap;
+     Map<String, Robot> rMap;
     JFrame myfr; 
     JFrame logfr;
    
     Integrator(){
 
-       RobCollection = new <Robot>ArrayList();
-       RobCollection.add(new Robot("nasa", 33));
-       RobCollection.add(new Robot("saturn", 66));
-       
+          
        rMap = new HashMap<String, Robot>();
-       rMap.put("nasa",RobCollection.get(0));
-       rMap.put("saturn",RobCollection.get(1));
+       rMap.put("nasa",new Robot("nasa", 33));
+       rMap.put("saturn",new Robot("saturn", 66));
        
        
        
