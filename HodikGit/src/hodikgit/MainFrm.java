@@ -285,8 +285,7 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
     }
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        RNameField.setText(null);
-        FreqSlider.setValue(30);
+        RNameField.setText(null);        FreqSlider.setValue(30);
         CrFrm.setVisible(false);
        
     }//GEN-LAST:event_jButton3MouseClicked
@@ -298,9 +297,13 @@ public class MainFrm extends javax.swing.JFrame {
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
 
-        JFrame myWindow = new GameWindow(800,600,integr);
+        GameWindow myWindow = new GameWindow(800,600,integr);
         myWindow.setVisible(true);
-        
+       Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());
+       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y);
+       rObj.curr.Run();
+       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y);
+       myWindow.getC().repaint();
         
     }//GEN-LAST:event_LaunchButtonActionPerformed
 
