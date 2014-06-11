@@ -9,19 +9,18 @@ package hodikgit;
  * @author user
  */
 public class Interpretator {
-    Coordinate c;
+    Coordinate c = new Coordinate();
 
     public Interpretator(){
-        this.c.x=0;
-        this.c.y=0;
-        this.c.p=0;
+        c.x=0;
+        c.y=0;
+        c.p=0;
     }
     public Interpretator (Coordinate C){
         this.c=C;
     }
     
-    public void Run (String S){
-        String Command[]=new String[50];
+    public void Run (String[] Command){
         int i=0;
         while (Command[i]!=null){
             if (Command[i].equals("Step")) this.Step();

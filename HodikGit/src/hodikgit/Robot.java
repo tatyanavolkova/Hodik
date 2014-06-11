@@ -23,6 +23,7 @@ public class Robot {
         this.rb_name = name;
         this.FreqVal = val;
         languages=new <File>ArrayList();
+        curr = new Interpretator();
     }
     
     void rb_show_info (){
