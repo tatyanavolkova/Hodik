@@ -15,22 +15,22 @@ import java.util.*;
  * @author lenovo
  */
 public class Lang {
-    ArrayList<String> arr;
+   public String[] vals;
     
-       Lang () {
-         arr=new <String>ArrayList();
+     public  Lang () {
+       
          System.out.print("Started reading");
         BufferedReader in;
         try {
-            in = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\lenovo\\Documents\\prog.txt")));
+            in = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\Lenovo\\Documents\\Univer\\Epifanov\\JAVA\\HDKfiles\\prog.txt")));
            System.out.println();
             while (in.ready()) {
                 String str = in.readLine();
-                 String[] vals=str.split("\n");
+                vals=str.split("\n");
 		if(vals!=null) {
-			for(int i=0; i<vals.length; i++) {
-				arr.toArray()[i]=vals[i];
-			}
+                    for (String val : vals) {
+                        System.out.println(val);
+                    }
             }
             }
         } catch (IOException e) {

@@ -10,23 +10,31 @@ package hodikgit;
  */
 public class Interpretator {
     Coordinate c = new Coordinate();
+    Lang rl;
 
     public Interpretator(){
         c.x=0;
         c.y=0;
         c.p=0;
+        rl = new Lang();
     }
     public Interpretator (Coordinate C){
         this.c=C;
+        rl = new Lang();
+        
     }
     
-    public void Run (String[] Command){
+    public void Run (){
         int i=0;
-        while (Command[i]!=null){
-            if (Command[i].equals("Step")) this.Step();
-            if (Command[i].equals("Rotate")) this.Rotate();
-            i++;
-        }
+//        while (this.rl.vals!=null){
+//            System.out.println(this.rl.vals[i]);
+//            if (this.rl.vals[i].equals("Step")) this.Step();
+//            if (this.rl.vals[i].equals("Rotate")) this.Rotate();
+//            i++;
+//        }
+        this.Step();
+        this.Rotate();
+        
 
     }
     
