@@ -52,15 +52,20 @@ public class Canvas extends JPanel {
         for(int i=0;i<=fieldSizeX;i++)
             g.drawLine(fieldLeftTopX+fieldCellSize*i, fieldLeftTopY, 
                     fieldLeftTopX+fieldCellSize*i, fieldLeftTopY+fieldCellSize*fieldSizeY);
-
-       /* for(Map.Entry<String, Robot> e: integr.rMap.entrySet()){  
-            //drawRobot(g,e.getValue().curr.coords.x,e.getValue().curr.coords.y);
-        drawRobot(g,3,3);
-        //}
+        try {
+            for(Map.Entry<String, Robot> e: integr.rMap.entrySet()){  
+                System.out.println(e.getKey());
+                 drawRobot(g,e.getValue().curr.c.x,e.getValue().curr.c.y);
+                 //drawRobot(g,3,3);
+             }
+        } catch (Exception ex){
+            //System.out.println(ex.getMessage());
+        }
        /* for(int i=0;i<obstacles.size();i++){  
             drawObstacle(g, obstacles.get(i).x, obstacles.get(i).x);
         }*/
     }
+    
     void drawObstacle(Graphics g, int cellX, int cellY)
     {
         g.drawImage(imgObstacle,this.fieldLeftTopX+this.fieldCellSize*(cellX-1),
