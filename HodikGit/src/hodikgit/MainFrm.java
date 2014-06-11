@@ -18,10 +18,12 @@ import java.util.*;
 public class MainFrm extends javax.swing.JFrame {
  private int size;
  private Integrator integr;
+ GameWindow myWindow;
      
     public MainFrm(Integrator a) {
         initComponents();
         integr = a;
+       
        
             
           for(Map.Entry<String, Robot> e: integr.rMap.entrySet()){   //при запуске формы,
@@ -63,6 +65,9 @@ public class MainFrm extends javax.swing.JFrame {
         ListRobLabel = new javax.swing.JLabel();
         LoadButton = new javax.swing.JButton();
         RobotButton = new javax.swing.JButton();
+        CoordField = new javax.swing.JTextField();
+        CoorLabel = new javax.swing.JLabel();
+        ButtonNext = new javax.swing.JButton();
 
         RobotName.setText("Robot's name");
 
@@ -178,6 +183,16 @@ public class MainFrm extends javax.swing.JFrame {
             }
         });
 
+        CoorLabel.setLabelFor(CoordField);
+        CoorLabel.setText("Coordinates");
+
+        ButtonNext.setText("Next");
+        ButtonNext.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonNextMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,29 +200,36 @@ public class MainFrm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(RobotButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LoadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(97, 97, 97)
                                 .addComponent(ListRobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(CoorLabel))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
-                                .addComponent(RobotBox, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(RobotBox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(CoordField, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ButtonNext)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(ListProgLabel)
                                 .addGap(41, 41, 41))
-                            .addComponent(ProgBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(RobotButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LoadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ProgBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(LaunchButton)
+                                .addGap(58, 58, 58)))))
                 .addGap(34, 34, 34))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(LaunchButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,9 +246,16 @@ public class MainFrm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RobotButton)
                     .addComponent(LoadButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addComponent(LaunchButton)
-                .addGap(26, 26, 26))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CoorLabel)
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CoordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonNext)))
+                    .addComponent(LaunchButton))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -296,16 +325,13 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
-       Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());
-       GameWindow myWindow = new GameWindow(800,600,integr, RobotBox.getSelectedItem().toString());
-       myWindow.setVisible(true);          
-       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y); // координаты робота сначала
-       rObj.curr.Run(FChoose.getSelectedFile());// вызываем Run с параметром файла, который выбрали
-       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y); // координаты робота после перемещения
-       myWindow.getC().repaint();
+      this.myWindow = new GameWindow(800,600,integr, RobotBox.getSelectedItem().toString());
+      this.myWindow.setVisible(true);          
+    
+      
         
     }//GEN-LAST:event_LaunchButtonActionPerformed
-
+ 
     private void RobotBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RobotBoxItemStateChanged
          String NameItem = RobotBox.getSelectedItem().toString();  //имя робота, который был выбран в комбобоксе
         Robot rObj = integr.rMap.get(NameItem); // получаем объект робота, по его имени
@@ -314,11 +340,25 @@ public class MainFrm extends javax.swing.JFrame {
                 this.ProgBox.addItem(rObj.languages.get(i).getName());}
     }//GEN-LAST:event_RobotBoxItemStateChanged
 
+    private void ButtonNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonNextMouseClicked
+    
+     Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());      
+     rObj.curr.Run(FChoose.getSelectedFile());
+     this.myWindow.getC().repaint();
+     String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
+     this.CoordField.setText(strCoord);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_ButtonNextMouseClicked
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonNext;
+    private javax.swing.JLabel CoorLabel;
+    private javax.swing.JTextField CoordField;
     private javax.swing.JFrame CrFrm;
     private javax.swing.JFileChooser FChoose;
     private javax.swing.JLabel FreqLabel;
