@@ -13,8 +13,8 @@ public class Interpretator {
     Lang rl;
 
     public Interpretator(){
-        c.x=0;
-        c.y=0;
+        c.x=1;
+        c.y=1;
         c.p=0;
         rl = new Lang();
     }

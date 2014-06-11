@@ -297,9 +297,9 @@ public class MainFrm extends javax.swing.JFrame {
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
 
-        GameWindow myWindow = new GameWindow(800,600,integr);
-        myWindow.setVisible(true);
        Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());
+       GameWindow myWindow = new GameWindow(800,600,integr, RobotBox.getSelectedItem().toString());
+        myWindow.setVisible(true);
        System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y);
        rObj.curr.Run();
        System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y);

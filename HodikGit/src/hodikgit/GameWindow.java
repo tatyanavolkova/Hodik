@@ -11,12 +11,15 @@ import javax.swing.*;
 
 public class GameWindow extends JFrame { 
     Integrator integr;
-   private Canvas c = new Canvas(7,10,50,50,50, integr);
-    GameWindow(int windowWidth, int windowHeight, Integrator i){ 
+    String robotName;
+    Canvas c;
+    GameWindow(int windowWidth, int windowHeight, Integrator i, String robotName){ 
         super("Hodik"); 
         integr=i;
+        this.robotName = robotName;
         setDefaultCloseOperation(EXIT_ON_CLOSE); 
         setSize(windowWidth, windowHeight); 
+        c = new Canvas(7,10,50,50,50, integr, robotName);
         this.getContentPane().add(c);
     }
 
