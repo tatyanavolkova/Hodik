@@ -9,7 +9,7 @@ import javax.swing.*;
  * @author user
  */
 
-public class GameWindow extends JFrame { 
+public class GameWindow extends javax.swing.JFrame { 
     Integrator integr;
     String robotName;
     Canvas c;

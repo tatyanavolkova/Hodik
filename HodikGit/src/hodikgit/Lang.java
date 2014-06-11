@@ -29,12 +29,12 @@ public class Lang {
             while (in.ready()) {
                 String str = in.readLine();
                 vals=str.split(" ");
-               //   System.out.println("Length = " + vals.length);
-		if(vals!=null) {
-                    for (String val : vals) {
-                        System.out.println(val);
-                    }
-            }
+               // вывод команд в консоль
+//		if(vals!=null) {
+//                    for (String val : vals) {
+//                        System.out.println(val);
+//                    }
+//           }
             }
         } catch (IOException e) {
             e.printStackTrace();
