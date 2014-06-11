@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Field {
     int h, w;
     Coordinate start;
-    ArrayList<Coordinate> obstacle;
+    ArrayList<Coor> obstacle;
     
     public Field(int a, int b){
         this.h = a;
@@ -25,4 +25,5 @@ public class Field {
         System.out.println("Здесь создается поле из файла");
         return F;
     }
-}
+  
+    }
