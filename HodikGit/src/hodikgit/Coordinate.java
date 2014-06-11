@@ -12,6 +12,8 @@ package hodikgit;
  */
 public class Coordinate {
     int x, y, p;
+    
+    public Coordinate(){}
     public Coordinate (int a, int b, int c){
         this.x = a;
         this.y = b;

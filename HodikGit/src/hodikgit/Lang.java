@@ -9,12 +9,16 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.*;
 
 /**
  * @author lenovo
  */
 public class Lang {
+    ArrayList<String> arr;
+    
        Lang () {
+         arr=new <String>ArrayList();
          System.out.print("Started reading");
         BufferedReader in;
         try {
@@ -25,7 +29,7 @@ public class Lang {
                  String[] vals=str.split("\n");
 		if(vals!=null) {
 			for(int i=0; i<vals.length; i++) {
-				System.out.println(vals[i]);
+				arr.toArray()[i]=vals[i];
 			}
             }
             }
@@ -35,9 +39,7 @@ public class Lang {
 
     }
 
-    public static void main(String[] args) {
-        Lang  k = new Lang ();
-    }
+    
 }
 
 
