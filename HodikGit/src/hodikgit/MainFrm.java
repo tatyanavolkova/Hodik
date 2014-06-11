@@ -235,7 +235,7 @@ public class MainFrm extends javax.swing.JFrame {
     private void LoadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoadButtonMouseClicked
         //BufferedReader reader = null;
         FChoose = new JFileChooser();//создаем объект для выбора файлов
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Hodik's file extension", "hdk");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Hodik's file extension", "txt");
         FChoose.setFileFilter(filter);//устанавливаем фильтр для выбора файлов только с расширением hdk
         int returnVal; //APPROVE_OPTION returns int value
         returnVal = FChoose.showOpenDialog(null);
@@ -296,13 +296,12 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
-
        Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());
        GameWindow myWindow = new GameWindow(800,600,integr, RobotBox.getSelectedItem().toString());
-        myWindow.setVisible(true);
-       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y);
-       rObj.curr.Run();
-       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y);
+       myWindow.setVisible(true);          
+       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y); // координаты робота сначала
+       rObj.curr.Run(FChoose.getSelectedFile());// вызываем Run с параметром файла, который выбрали
+       System.out.println("x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y); // координаты робота после перемещения
        myWindow.getC().repaint();
         
     }//GEN-LAST:event_LaunchButtonActionPerformed

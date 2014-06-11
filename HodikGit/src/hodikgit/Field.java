@@ -25,5 +25,4 @@ public class Field {
         System.out.println("Здесь создается поле из файла");
         return F;
     }
-  
-    }
+}

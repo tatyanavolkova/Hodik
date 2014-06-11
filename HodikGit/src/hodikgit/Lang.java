@@ -6,6 +6,7 @@
 
 package hodikgit;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,16 +18,18 @@ import java.util.*;
 public class Lang {
    public String[] vals;
     
-     public  Lang () {
+   public Lang(){}
+     public  void readFromFile (File f) {
        
-         System.out.print("Started reading");
+      //  System.out.print("Started reading");
         BufferedReader in;
         try {
-            in = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\Lenovo\\Documents\\Univer\\Epifanov\\JAVA\\HDKfiles\\prog.txt")));
+           in = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
            System.out.println();
             while (in.ready()) {
                 String str = in.readLine();
-                vals=str.split("\n");
+                vals=str.split(" ");
+               //   System.out.println("Length = " + vals.length);
 		if(vals!=null) {
                     for (String val : vals) {
                         System.out.println(val);
@@ -38,6 +41,8 @@ public class Lang {
         }
 
     }
+     
+     
 
     
 }

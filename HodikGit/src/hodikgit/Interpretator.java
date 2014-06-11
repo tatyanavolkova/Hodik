@@ -4,6 +4,8 @@
  */
 package hodikgit;
 
+import java.io.File;
+
 /**
  *
  * @author user
@@ -24,16 +26,17 @@ public class Interpretator {
         
     }
     
-    public void Run (){
-        int i=0;
-//        while (this.rl.vals!=null){
-//            System.out.println(this.rl.vals[i]);
-//            if (this.rl.vals[i].equals("Step")) this.Step();
-//            if (this.rl.vals[i].equals("Rotate")) this.Rotate();
-//            i++;
-//        }
-        this.Step();
-        this.Rotate();
+    public void Run (File f){
+        
+        rl.readFromFile(f);
+       
+        for (int i=0; i<rl.vals.length; i++)
+        {
+          if (rl.vals[i].equals("Step")) this.Step();
+          if (rl.vals[i].equals("Rotate")) this.Rotate();
+         
+         }
+            
         
 
     }
