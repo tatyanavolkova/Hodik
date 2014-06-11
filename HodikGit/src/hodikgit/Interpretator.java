@@ -20,8 +20,7 @@ public class Interpretator {
         this.c=C;
     }
     
-    public void Run (String S){
-        String Command[]=new String[50];
+    public void Run (String Command[]){
         int i=0;
         while (Command[i]!=null){
             if (Command[i].equals("Step")) this.Step();
