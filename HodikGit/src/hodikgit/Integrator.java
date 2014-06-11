@@ -15,7 +15,8 @@ public class Integrator {
      Map<String, Robot> rMap;
     JFrame myfr; 
     JFrame logfr;
-   
+    java.util.Timer timer;
+    
     Integrator(){
 
           
