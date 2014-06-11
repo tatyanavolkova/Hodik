@@ -55,8 +55,9 @@ public class Canvas extends JPanel {
 
        /* for(Map.Entry<String, Robot> e: integr.rMap.entrySet()){  
             //drawRobot(g,e.getValue().curr.coords.x,e.getValue().curr.coords.y);
-        }
-        for(int i=0;i<obstacles.size();i++){  
+        drawRobot(g,3,3);
+        //}
+       /* for(int i=0;i<obstacles.size();i++){  
             drawObstacle(g, obstacles.get(i).x, obstacles.get(i).x);
         }*/
     }
