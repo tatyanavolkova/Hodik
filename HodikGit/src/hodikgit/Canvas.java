@@ -25,14 +25,16 @@ public class Canvas extends JPanel {
     Integrator integr;
     BufferedImage imgObstacle, imgRobot;
     ArrayList<Coordinate> obstacles;
+    String robotName;
     
     Canvas(int fieldSizeX, int fieldSizeY, int fieldCellSize, 
-            int fieldLeftTopX, int fieldLeftTopY, Integrator in) {
+          int fieldLeftTopX, int fieldLeftTopY, Integrator in, String robotName) {
         this.fieldSizeX = fieldSizeX;
         this.fieldSizeY = fieldSizeY;
         this.fieldCellSize = fieldCellSize;
         this.fieldLeftTopX = fieldLeftTopX;
         this.fieldLeftTopY = fieldLeftTopY;
+        this.robotName = robotName;
         integr=in;
         try {
             imgObstacle=ImageIO.read(new File("icons/obstacle.jpg"));
@@ -52,15 +54,17 @@ public class Canvas extends JPanel {
         for(int i=0;i<=fieldSizeX;i++)
             g.drawLine(fieldLeftTopX+fieldCellSize*i, fieldLeftTopY, 
                     fieldLeftTopX+fieldCellSize*i, fieldLeftTopY+fieldCellSize*fieldSizeY);
-
-       //for(Map.Entry<String, Robot> e: integr.rMap.entrySet()){  
-            //drawRobot(g,e.getValue().curr.coords.x,e.getValue().curr.coords.y);
-        drawRobot(g,3,3);
-        //}
+        try {
+           Robot robot = integr.rMap.get(robotName);
+           drawRobot(g,robot.curr.c.x,robot.curr.c.y);
+        } catch (Exception ex){
+            //System.out.println(ex.getMessage());
+        }
        /* for(int i=0;i<obstacles.size();i++){  
             drawObstacle(g, obstacles.get(i).x, obstacles.get(i).x);
         }*/
     }
+    
     void drawObstacle(Graphics g, int cellX, int cellY)
     {
         g.drawImage(imgObstacle,this.fieldLeftTopX+this.fieldCellSize*(cellX-1),
