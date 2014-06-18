@@ -40,4 +40,10 @@ public class Field {
         return F;
     }
     
+    void fld_move_frame(int n){
+        this.initX +=n;
+        this.initY +=n;
+    }
+    
+    
 }
