@@ -112,6 +112,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -153,7 +154,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="CoordField" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ButtonNext" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ButtonRun" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -201,7 +202,7 @@
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CoordField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ButtonNext" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ButtonRun" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="LaunchButton" min="-2" max="-2" attributes="0"/>
@@ -278,13 +279,13 @@
         <Property name="text" type="java.lang.String" value="Coordinates"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="ButtonNext">
+    <Component class="javax.swing.JButton" name="ButtonRun">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Next"/>
+        <Property name="text" type="java.lang.String" value="Run"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ButtonNextMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonNextActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ButtonRunMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonRunActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

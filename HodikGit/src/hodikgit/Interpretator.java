@@ -26,19 +26,11 @@ public class Interpretator {
         
     }
     
-    public void Run (File f){
-        
-        rl.readFromFile(f);
-       
-       int i=0;
-        do
-        {
-          if (rl.vals[i].equals("Step")) this.Step();
-          if (rl.vals[i].equals("Rotate")) this.Rotate();
-          i++;
-        }
-        while(rl.vals[i].equals("End")==false);
-               
+    public boolean Run (int i){
+          if (rl.vals[i].equals("Step")) {this.Step(); System.out.println("Step");};
+          if (rl.vals[i].equals("Rotate")) {this.Rotate();System.out.println("Rotate");};
+          if (rl.vals[i].equals("End")) return true;
+          return false;
 
     }
    

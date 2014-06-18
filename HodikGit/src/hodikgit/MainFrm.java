@@ -11,6 +11,8 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.lang.String;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Lenovo
@@ -67,7 +69,7 @@ public class MainFrm extends javax.swing.JFrame {
         RobotButton = new javax.swing.JButton();
         CoordField = new javax.swing.JTextField();
         CoorLabel = new javax.swing.JLabel();
-        ButtonNext = new javax.swing.JButton();
+        ButtonRun = new javax.swing.JButton();
 
         RobotName.setText("Robot's name");
 
@@ -186,15 +188,15 @@ public class MainFrm extends javax.swing.JFrame {
         CoorLabel.setLabelFor(CoordField);
         CoorLabel.setText("Coordinates");
 
-        ButtonNext.setText("Next");
-        ButtonNext.addMouseListener(new java.awt.event.MouseAdapter() {
+        ButtonRun.setText("Run");
+        ButtonRun.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ButtonNextMouseClicked(evt);
+                ButtonRunMouseClicked(evt);
             }
         });
-        ButtonNext.addActionListener(new java.awt.event.ActionListener() {
+        ButtonRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonNextActionPerformed(evt);
+                ButtonRunActionPerformed(evt);
             }
         });
 
@@ -224,7 +226,7 @@ public class MainFrm extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(CoordField, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(ButtonNext)))))
+                                        .addComponent(ButtonRun)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -258,7 +260,7 @@ public class MainFrm extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CoordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonNext)))
+                            .addComponent(ButtonRun)))
                     .addComponent(LaunchButton))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
@@ -348,27 +350,41 @@ public class MainFrm extends javax.swing.JFrame {
                 this.ProgBox.addItem(rObj.languages.get(i).getName());}
     }//GEN-LAST:event_RobotBoxItemStateChanged
 
-    private void ButtonNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonNextMouseClicked
+    private void ButtonRunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRunMouseClicked
     
-     Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());      
-     rObj.curr.Run(FChoose.getSelectedFile());
-     this.myWindow.getC().repaint();
-     String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
-     this.CoordField.setText(strCoord);
-
+       
+     Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());
+     rObj.curr.rl.readFromFile(FChoose.getSelectedFile());
+     for (int i = 0; ;i++)
+     {
+            try {
+                if (rObj.curr.Run(i)) break;
+               Thread.sleep(1000);
+               this.myWindow.getC().repaint();
+               String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
+              System.out.println(strCoord);
+               this.CoordField.setText(strCoord);
+            }
 // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonNextMouseClicked
+            catch (InterruptedException ex) {
+                Logger.getLogger(MainFrm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
+    
+     
 
-    private void ButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNextActionPerformed
+    }//GEN-LAST:event_ButtonRunMouseClicked
+
+    private void ButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRunActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonNextActionPerformed
+    }//GEN-LAST:event_ButtonRunActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonNext;
+    private javax.swing.JButton ButtonRun;
     private javax.swing.JLabel CoorLabel;
     private javax.swing.JTextField CoordField;
     private javax.swing.JFrame CrFrm;
