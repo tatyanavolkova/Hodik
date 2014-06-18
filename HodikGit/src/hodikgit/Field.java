@@ -17,8 +17,8 @@ import java.util.ArrayList;
  */
 public class Field {
     int h, w;
-    int initX = 0;
-    int initY = 0;
+    int initX = 1;
+    int initY = 1;
     Coordinate start;
     ArrayList<Coordinate> obstacles;
     
