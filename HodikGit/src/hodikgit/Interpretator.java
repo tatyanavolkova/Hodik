@@ -42,10 +42,10 @@ public class Interpretator {
     }
     
     public void Step(){
-       if(this.c.p==0) this.c.y=this.c.y+1;
-       if(this.c.p==1) this.c.x=this.c.x+1;
-       if(this.c.p==2) this.c.y=this.c.y-1;
-       if(this.c.p==3) this.c.x=this.c.x-1;
+       if(this.c.p==0) this.c.x=this.c.x+1;
+       if(this.c.p==1) this.c.y=this.c.y+1;
+       if(this.c.p==2) this.c.x=this.c.x-1;
+       if(this.c.p==3) this.c.y=this.c.y-1;
     }
     
     public void Rotate(){
