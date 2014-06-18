@@ -13,6 +13,7 @@ import java.lang.String;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Lenovo
@@ -355,20 +356,14 @@ public class MainFrm extends javax.swing.JFrame {
        
      Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString());
      rObj.curr.rl.readFromFile(FChoose.getSelectedFile());
+     
      for (int i = 0; ;i++)
      {
-            try {
-                if (rObj.curr.Run(i)) break;
-               Thread.sleep(1000);
-               this.myWindow.getC().repaint();
-               String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
-              System.out.println(strCoord);
-               this.CoordField.setText(strCoord);
-            }
-// TODO add your handling code here:
-            catch (InterruptedException ex) {
-                Logger.getLogger(MainFrm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         if (rObj.curr.Run(i)) break;
+         this.myWindow.getC().repaint();
+         String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
+         System.out.println(strCoord);
+         this.CoordField.setText(strCoord);
        }
     
      
