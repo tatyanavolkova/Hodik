@@ -331,8 +331,11 @@ public class MainFrm extends javax.swing.JFrame {
     private void LaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaunchButtonActionPerformed
         // TODO add your handling code here:
       this.myWindow = new GameWindow(800,600,integr, RobotBox.getSelectedItem().toString());
-      this.myWindow.setVisible(true);          
-    
+      this.myWindow.setVisible(true);     
+      // отображение начальных координат робота при запуске формы
+      Robot rObj = integr.rMap.get(RobotBox.getSelectedItem().toString()); 
+      String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
+      this.CoordField.setText(strCoord);
       
         
     }//GEN-LAST:event_LaunchButtonActionPerformed
