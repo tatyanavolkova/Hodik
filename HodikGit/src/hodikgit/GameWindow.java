@@ -19,7 +19,7 @@ public class GameWindow extends javax.swing.JFrame {
         this.robotName = robotName;
         setDefaultCloseOperation(EXIT_ON_CLOSE); 
         setSize(windowWidth, windowHeight); 
-        c = new Canvas(7,10,50,50,50, integr, robotName);
+        c = new Canvas(integr.field.w,integr.field.h,50,50,50, integr, robotName);
         this.getContentPane().add(c);
     }
 
