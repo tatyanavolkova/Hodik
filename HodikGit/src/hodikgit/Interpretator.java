@@ -30,17 +30,18 @@ public class Interpretator {
         
         rl.readFromFile(f);
        
-        for (int i=0; i<rl.vals.length; i++)
+       // for (int i=0; i<rl.vals.length; i++)
+        int i=0;
+        do
         {
           if (rl.vals[i].equals("Step")) this.Step();
           if (rl.vals[i].equals("Rotate")) this.Rotate();
          
-         }
-            
-        
+        }while(rl.vals[i].equals("End")==false);
+               
 
     }
-    
+   
     public void Step(){
        if(this.c.p==0) this.c.x=this.c.x+1;
        if(this.c.p==1) this.c.y=this.c.y+1;
