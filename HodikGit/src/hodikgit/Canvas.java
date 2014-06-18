@@ -63,9 +63,16 @@ public class Canvas extends JPanel {
             g.drawLine(fieldLeftTopX+fieldCellSize*i, fieldLeftTopY, 
                     fieldLeftTopX+fieldCellSize*i, fieldLeftTopY+fieldCellSize*fieldSizeY);
            Robot robot = integr.rMap.get(robotName);
-           /*if(integr.field.initX>robot.curr.c.x)
-               integr.*/
-           drawRobot(g,robot.curr.c.x,robot.curr.c.y,robot.curr.c.p);
+           if(integr.field.initX>robot.curr.c.x)
+               integr.field.fld_move_frame(-5,0);
+           else if(integr.field.initY>robot.curr.c.y)
+               integr.field.fld_move_frame(0,-5);
+           else if(integr.field.initY+integr.field.w<robot.curr.c.x)
+               integr.field.fld_move_frame(5,0);
+           else if(integr.field.initY+integr.field.h<robot.curr.c.y)
+               integr.field.fld_move_frame(0,5);
+           drawRobot(g,robot.curr.c.x-integr.field.initX,robot.curr.c.y-
+                   integr.field.initY,robot.curr.c.p);
 
        /* for(int i=0;i<obstacles.size();i++){  
             drawObstacle(g, obstacles.get(i).x, obstacles.get(i).x);

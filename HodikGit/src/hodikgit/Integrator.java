@@ -20,7 +20,7 @@ public class Integrator {
     
     Integrator(){
 
-       field = new Field(5,7);
+       field = new Field(10,10);
        rMap = new HashMap<String, Robot>();
        rMap.put("nasa",new Robot("nasa", 33));
        rMap.put("saturn",new Robot("saturn", 66));

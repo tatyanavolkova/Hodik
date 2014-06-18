@@ -192,6 +192,11 @@ public class MainFrm extends javax.swing.JFrame {
                 ButtonNextMouseClicked(evt);
             }
         });
+        ButtonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -350,6 +355,10 @@ public class MainFrm extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_ButtonNextMouseClicked
+
+    private void ButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonNextActionPerformed
 
     /**
      * @param args the command line arguments
