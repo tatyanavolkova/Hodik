@@ -23,7 +23,7 @@ public class Canvas extends JPanel {
     int fieldLeftTopX;
     int fieldLeftTopY;
     Integrator integr;
-    BufferedImage imgObstacle, imgRobot;
+    BufferedImage imgObstacle, imgRobot, imgRobotLeft, imgRobotRight;
     ArrayList<Coordinate> obstacles;
     String robotName;
     
@@ -44,6 +44,14 @@ public class Canvas extends JPanel {
             imgRobot=ImageIO.read(new File("icons/hodik.jpg"));
         } catch (IOException e) {
         }
+        try {
+            imgRobotLeft=ImageIO.read(new File("icons/hodik_leftdir.jpg"));
+        } catch (IOException e) {
+        }
+        try {
+            imgRobotRight=ImageIO.read(new File("icons/hodik_rightdir.jpg"));
+        } catch (IOException e) {
+        }
     }
     public void paint(Graphics g) {
         super.paint(g);
@@ -56,7 +64,7 @@ public class Canvas extends JPanel {
                     fieldLeftTopX+fieldCellSize*i, fieldLeftTopY+fieldCellSize*fieldSizeY);
         try {
            Robot robot = integr.rMap.get(robotName);
-           drawRobot(g,robot.curr.c.x,robot.curr.c.y);
+           drawRobot(g,robot.curr.c.x,robot.curr.c.y,robot.curr.c.p);
         } catch (Exception ex){
             //System.out.println(ex.getMessage());
         }
@@ -71,10 +79,25 @@ public class Canvas extends JPanel {
                 fieldLeftTopY+fieldCellSize*(cellY-1),
                 fieldCellSize,fieldCellSize,null);
     }
-    void drawRobot(Graphics g, int cellX, int cellY)
+    void drawRobot(Graphics g, int cellX, int cellY, int dir)
     {
-        g.drawImage(imgRobot,this.fieldLeftTopX+this.fieldCellSize*(cellX-1),
-                fieldLeftTopY+fieldCellSize*(cellY-1),
-                fieldCellSize,fieldCellSize,null);
+        switch (dir)
+        { 
+            case 0:
+                g.drawImage(imgRobotRight,this.fieldLeftTopX+this.fieldCellSize*(cellX-1),
+                    fieldLeftTopY+fieldCellSize*(cellY-1),
+                    fieldCellSize,fieldCellSize,null);
+                break;
+            case 2:
+                g.drawImage(imgRobotLeft,this.fieldLeftTopX+this.fieldCellSize*(cellX-1),
+                    fieldLeftTopY+fieldCellSize*(cellY-1),
+                    fieldCellSize,fieldCellSize,null);
+                break;
+            default:
+                g.drawImage(imgRobot,this.fieldLeftTopX+this.fieldCellSize*(cellX-1),
+                    fieldLeftTopY+fieldCellSize*(cellY-1),
+                    fieldCellSize,fieldCellSize,null);
+                break;
+        }
     }
 }
