@@ -17,6 +17,8 @@ import java.util.ArrayList;
  */
 public class Field {
     int h, w;
+    int initX = 0;
+    int initY = 0;
     Coordinate start;
     ArrayList<Coordinate> obstacles;
     
@@ -26,9 +28,15 @@ public class Field {
 /*        obstacles.add(new Coordinate(2,2,0));
         obstacles.add(new Coordinate(3,5,0));*/
     }
-    File fld_create(File F)
+    File fld_create_obst(File F)
     {
         System.out.println("Здесь создается поле из файла");
+       /* for(int i=0;i<h;i++)
+            for(int j=0;j<w;j++)
+            {
+                obstacles.add(new Coordinate(i,j,0));
+            }
+        for(int i=0;i<obstacles.size();i++) obstacles<i>.toString();*/
         return F;
     }
     
