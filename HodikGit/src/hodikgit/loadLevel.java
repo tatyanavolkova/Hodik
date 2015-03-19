@@ -15,7 +15,7 @@ import org.w3c.dom.NodeList;
 
 /**
  *
- * @author j-june
+ * @author yunna_u
  */
 public class loadLevel 
 {
