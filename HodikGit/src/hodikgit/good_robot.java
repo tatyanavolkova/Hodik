@@ -54,5 +54,6 @@ public class good_robot extends Field_object{
     void del_prog(String name)
     {
         progs.remove(name);
+        System.out.println("Program '"+name+"' deleted");
     }
 }
