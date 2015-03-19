@@ -29,11 +29,5 @@ public class good_robot extends Field_object{
         System.out.println("Name: "+ name);
         System.out.println("XP: " + xp);
     }
-    
-    
-    public void rotate(){
-        
-    }
-    
 
 }

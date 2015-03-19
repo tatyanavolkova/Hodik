@@ -28,15 +28,4 @@ public class bad_robot extends Field_object{
         System.out.println("XP: " + xp);
         System.out.println("damage: " + damage);
     }
-    
-    public void move()
-    {
-        switch (act_type){
-            case 1:
-                //up-down
-            case 2:
-                //left-right
-        }
-        
-    }
 }
