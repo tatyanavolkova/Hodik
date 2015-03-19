@@ -5,8 +5,6 @@
  */
 package hodikgit;
 
-import static java.lang.Integer.parseInt;
-
 /**
  *
  * @author jbenua
@@ -15,12 +13,13 @@ public class good_robot extends Field_object{
     String name;
     int xp;
     int act_type;
-    good_robot(Coordinate coord, String t, String[] args)
+    
+    good_robot(Coordinate coord, String t, String n, int x, int a)
     {
         super(coord, t);
-        name=args[0];
-        xp=parseInt(args[1]);
-        act_type=parseInt(args[2]);
+        name=n;
+        xp=x;
+        act_type=a;
     }
 
     @Override

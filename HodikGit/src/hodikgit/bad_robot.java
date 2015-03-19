@@ -5,8 +5,6 @@
  */
 package hodikgit;
 
-import static java.lang.Integer.parseInt;
-
 /**
  *
  * @author jbenua
@@ -15,12 +13,12 @@ public class bad_robot extends Field_object{
     int xp;
     int damage;
     int act_type;
-    bad_robot(Coordinate coord, String t, String[] args)
+    bad_robot(Coordinate coord, String t, int x, int a, int d)
     {
         super(coord, t);
-        xp=parseInt(args[0]);
-        act_type=parseInt(args[1]);
-        damage=parseInt(args[2]);
+        xp=x;
+        act_type=a;
+        damage=d;
     }
     
     @Override
