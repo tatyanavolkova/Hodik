@@ -9,25 +9,34 @@ package hodikgit;
  *
  * @author jbenua
  */
-public class Field_object {
+public abstract class Field_object {
     String type; //"good_robot", "bad_robot", "obstacle" etc.
     Coordinate c;
+    Field_object me;
+    Field_object(String args[]){};
     Field_object(String t, Coordinate coord, String args[])
     {
+        c=coord;
         switch (t){
             case "good_robot":
             {
-                good_robot a=new good_robot(args);//args: name, xp, act_type
+                me = new good_robot(args);//string args: name, xp(number), act_type(number)
             }
             case "bad_robot":
             {
-                bad_robot a=new bad_robot(args);//args: xp, act_type
+                me = new bad_robot(args);//string args: xp(number), act_type(number)
             }
             case "obstacle":
             {
                 //obstacle a=new obstacle(args);
             }
-            c=coord;
         }
+    }
+    
+    public void show_info()
+    {
+        System.out.println("Type: " + type);
+        System.out.println("Coords: " + c);
+        System.out.println(me);
     }
 }
