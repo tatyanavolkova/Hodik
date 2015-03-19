@@ -12,31 +12,15 @@ package hodikgit;
 public abstract class Field_object {
     String type; //"good_robot", "bad_robot", "obstacle" etc.
     Coordinate c;
-    Field_object me;
-    Field_object(String[] args){};
-    Field_object(String t, Coordinate coord, String[] args)
+    Field_object(Coordinate coord, String t)
     {
         c=coord;
-        switch (t){
-            case "good_robot":
-            {
-                me = new good_robot(args);//string args: name, xp(number), act_type(number)
-            }
-            case "bad_robot":
-            {
-                 me = new bad_robot(args);//string args: xp(number), act_type(number)
-            }
-            case "obstacle":
-            {
-                //obstacle a=new obstacle(args);
-            }
-        }
-    }
+        type=t;
+    };
     
     public void show_info()
     {
         System.out.println("Type: " + type);
         System.out.println("Coords: " + c);
-        System.out.println(me);
     }
 }
