@@ -13,8 +13,8 @@ public abstract class Field_object {
     String type; //"good_robot", "bad_robot", "obstacle" etc.
     Coordinate c;
     Field_object me;
-    Field_object(String args[]){};
-    Field_object(String t, Coordinate coord, String args[])
+    Field_object(String[] args){};
+    Field_object(String t, Coordinate coord, String[] args)
     {
         c=coord;
         switch (t){
