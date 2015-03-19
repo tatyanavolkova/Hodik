@@ -11,13 +11,11 @@ import java.io.File;
  * @author user
  */
 public class Interpretator {
-    Coordinate c = new Coordinate();
+    Coordinate c;
     Lang rl;
 
     public Interpretator(){
-        c.x=1;
-        c.y=1;
-        c.p=0;
+        c = new Coordinate();
         rl = new Lang();
     }
     public Interpretator (Coordinate C){
