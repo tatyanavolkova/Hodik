@@ -13,12 +13,14 @@ import static java.lang.Integer.parseInt;
  */
 public class bad_robot extends Field_object{
     int xp;
+    int damage;
     int act_type;
     bad_robot(Coordinate coord, String t, String[] args)
     {
         super(coord, t);
         xp=parseInt(args[0]);
         act_type=parseInt(args[1]);
+        damage=parseInt(args[2]);
     }
     
     @Override
