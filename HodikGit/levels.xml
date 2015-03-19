@@ -7,37 +7,15 @@ and open the template in the editor.
 
 
 <game>
-	<level>
-		<number>1</nubmer>
-		<robots>	
-			<robot>
-				<name>good</name>
-				<coordinates>
-					<x>5</x>
-					<y>1</y>
-				</coordinates>
-			</robot>
-			<mobs>
-				<mob>
-					<type>1</type>
-					<name>a</name>
-					<coordinates>
-						<x>7</x>
-						<y>9</y>
-					</coordinates>
-				</mob>
-				<mob>
-					<type>2</type>
-					<name>b</name>
-					<coordinates>
-						<x>7</x>
-						<y>1</y>
-					</coordinates>
-				</mob>
-			</mobs>
-		</robots>
-		<achivements>
-			
-		</achivements>
+	<level number="1">	
+		<robot name ="good">
+			<coordinates x="5" y="1"></coordinates>
+		</robot>
+		<mob type="1" name="a">
+			<coordinates x="7" y="9"></coordinates>
+		</mob>
+		<mob type="2" name="b">
+			<coordinates x="7" y="1"></coordinates>
+		</mob>
 	</level>
 </game>
