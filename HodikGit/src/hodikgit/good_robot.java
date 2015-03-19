@@ -24,7 +24,7 @@ public class good_robot extends Field_object{
         name=n;
         xp=x;
         act_type=a;
-        progs=new HashMap<String, Algorithm>();
+        progs=new HashMap<>();
     }
 
     @Override
