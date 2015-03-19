@@ -26,6 +26,8 @@ public class Algorithm {
     }
     public void changeName(String newname)
     {
+        System.out.print("Algorithm name changed: " + name);
         name=newname;
+        System.out.print(" -> " + name);
     }
 }

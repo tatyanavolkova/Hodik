@@ -44,16 +44,17 @@ public class good_robot extends Field_object{
     {
         Algorithm a = new Algorithm(n, p);
         progs.put(n, a);
+        System.out.println("Algorithm added: "+ a.name + a.path);
     }
     
-    void launch_prog(String name)
+    void launch_prog(String n)
     {
-        System.out.println("Launching program '"+ name+"'...");
-        // some_function(progs.get(name);
+        System.out.println("Launching program '"+ n+"'...");
+        // some_function(progs.get(n);
     }
-    void del_prog(String name)
+    void del_prog(String n)
     {
-        progs.remove(name);
-        System.out.println("Program '"+name+"' deleted");
+        progs.remove(n);
+        System.out.println("Program '"+n+"' deleted");
     }
 }
