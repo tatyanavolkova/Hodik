@@ -24,7 +24,7 @@ public abstract class Field_object {
             }
             case "bad_robot":
             {
-                me = new bad_robot(args);//string args: xp(number), act_type(number)
+                 me = new bad_robot(args);//string args: xp(number), act_type(number)
             }
             case "obstacle":
             {
