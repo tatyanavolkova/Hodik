@@ -28,6 +28,7 @@ public class bad_robot extends Field_object{
     {
         super.show_info();
         System.out.println("XP: " + xp);
+        System.out.println("damage: " + damage);
     }
     
     public void move()
