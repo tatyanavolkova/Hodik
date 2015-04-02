@@ -5,12 +5,15 @@
  */
 package hodikgit;
 import java.io.File;
+import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -19,7 +22,6 @@ import org.w3c.dom.NodeList;
 public class loadLevel 
 {
     Info info;
-    static int n=0;
     loadLevel() throws Exception
     {
         getDocument();
@@ -34,7 +36,7 @@ public class loadLevel
             DocumentBuilder builder = f.newDocumentBuilder();
             XMLParser(builder.parse(new File("levels.xml")));
         } 
-        catch (Exception exception) 
+        catch (ParserConfigurationException | SAXException | IOException exception) 
         {
             String message = "XML parsing error!";
             throw new Exception(message);
@@ -44,87 +46,68 @@ public class loadLevel
     public static void XMLParser(Document d)
     {
         d.getDocumentElement().normalize();
-        Element rootel=d.getDocumentElement();                                  // корневой элемент документа
-//        System.out.println(rootel.getNodeName());
-//        System.out.print("Child elements: ");                                   // список имен дочерних элементов
-//        NodeList lst= rootel.getChildNodes();
-//        for(int i=0;i<lst.getLength();i++)
-//        {
-//            System.out.println(lst.item(i).getNodeName()+" ");
-//        }
-//   
-//        System.out.print("Child elements: ");                                   // список имен дочерних элементов и их содержимого
-//        Node el=rootel.getFirstChild();        
-//        do
-//        {
-//            System.out.println(el.getNodeName()+": "+ el.getTextContent());
-//            el=el.getNextSibling();
-//        }
-//        while(el!=null);
-        NodeList levels = d.getElementsByTagName("level");
-        for (int i=0;i<levels.getLength();i++)
+        Element root=d.getDocumentElement();                                    // корневой элемент документа
+        NodeList levels=root.getChildNodes();
+        Node level=root.getFirstChild();
+        for(int i=0;i<levels.getLength();i++)
         {
-            Node nNode = levels.item(i);
-            System.out.println("\nCurrent Element: " + nNode.getNodeName());
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) 
+            do
             {
-                Element eElement = (Element) nNode;
-                System.out.println("Level number: " + eElement.getAttribute("number"));
-                d=addRobot(d);
-                d=addMobs(d);
-            }
-        }
+                level=level.getNextSibling();
+            } 
+            while(level.getNodeType()!=Node.ELEMENT_NODE);
+
+            Element el = (Element) level;
+            System.out.println("Level number: " + el.getAttribute("number") + "\n");
+            addRobot(level);
+            System.out.println("Robot added");
+            addMobs(level);
+            System.out.println("Mobs added");
+        } 
     }
     
-    static private Document addRobot(Document d)
+    static private void addRobot(Node level)
     {
-        NodeList robot = d.getElementsByTagName("robot");
-        for(int i=0;i<robot.getLength();i++)
+        Node robot=level.getFirstChild();
+        do
         {
-            Node nNode = robot.item(i);
-            System.out.println("\nCurrent Element: " + nNode.getNodeName());
-            if(nNode.getNodeType()==Node.ELEMENT_NODE) 
-            {
-                Element eElement = (Element) nNode;
-                System.out.println("Robot's name: " + eElement.getAttribute("name"));
-                d=addCoordinates(d,n);
-                n++;
-            }
-        }
-        return d;
+            robot=robot.getNextSibling();
+        } 
+        while(robot.getNodeType()!=Node.ELEMENT_NODE);
+
+        Element el = (Element) robot;
+        System.out.println("Robot's name: " + el.getAttribute("name"));
+        addCoordinates(robot);
     }
     
-    static private Document addCoordinates(Document d, int i)
+    static private void addCoordinates(Node character)
     {
-        NodeList coordinates = d.getElementsByTagName("coordinates");
-        Node nNode = coordinates.item(i);
-        System.out.println("\nCurrent Element: " + nNode.getNodeName());
-        if(nNode.getNodeType()==Node.ELEMENT_NODE) 
-            {
-                Element eElement = (Element) nNode;
-                System.out.println("Coordinate x: " + eElement.getAttribute("x"));
-                System.out.println("Coordinate y: " + eElement.getAttribute("y"));
-            }
-        return d;
+        Node coordinates=character.getFirstChild();
+        do
+        {
+            coordinates=coordinates.getNextSibling();
+        } 
+        while(coordinates.getNodeType()!=Node.ELEMENT_NODE);
+
+        Element el = (Element) coordinates;
+        System.out.println("Coordinate x: " + el.getAttribute("x"));
+        System.out.println("Coordinate y: " + el.getAttribute("y") + "\n");
     }
     
-    static private Document addMobs(Document d)
+    static private void addMobs(Node level)
     {
-        NodeList mob = d.getElementsByTagName("mob");
-        for(int i=0;i<mob.getLength();i++)
+        NodeList mobs=level.getChildNodes();
+        for(int i=2;i<mobs.getLength();i++)
         {
-            Node nNode = mob.item(i);
-            System.out.println("\nCurrent Element: " + nNode.getNodeName());
-            if(nNode.getNodeType()==Node.ELEMENT_NODE) 
+            if(mobs.item(i).getNodeType()==Node.ELEMENT_NODE)
             {
-                Element eElement = (Element) nNode;
-                System.out.println("Mob's type: " + eElement.getAttribute("type"));
-                System.out.println("Mob's name: " + eElement.getAttribute("name"));
-                d=addCoordinates(d, n);
-                n++;
+                Element el = (Element) mobs.item(i);   
+                System.out.println("Mob's type: " + el.getAttribute("type"));
+                System.out.println("Mob's name: " + el.getAttribute("name"));
+                addCoordinates(mobs.item(i));
+                System.out.println("Mob added");
             }
         }
-        return d;
     }
               
 }
