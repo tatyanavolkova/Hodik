@@ -10,7 +10,7 @@ package hodikgit;
  * @author Lenus1k
  */
 public class obst_stone extends Field_object {
-    obst_stone (Interpretator i,Coordinate coord, String t)
+    obst_stone (Integrator i,Coordinate coord, String t)
     {
         super (i, coord,t);
     }

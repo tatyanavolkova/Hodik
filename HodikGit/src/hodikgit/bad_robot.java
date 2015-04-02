@@ -13,7 +13,7 @@ public class bad_robot extends Field_object{
     int xp;
     int damage;
     int act_type;
-    bad_robot(Interpretator i,Coordinate coord, String t, int x, int a, int d)
+    bad_robot(Integrator i,Coordinate coord, String t, int x, int a, int d)
     {
         super(i, coord, t);
         xp=x;
