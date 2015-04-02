@@ -18,6 +18,8 @@ import org.w3c.dom.NodeList;
  */
 public class loadLevel 
 {
+    Info info;
+    static int n=0;
     loadLevel() throws Exception
     {
         getDocument();
@@ -85,16 +87,17 @@ public class loadLevel
             {
                 Element eElement = (Element) nNode;
                 System.out.println("Robot's name: " + eElement.getAttribute("name"));
-                d=addCoordinates(d);
+                d=addCoordinates(d,n);
+                n++;
             }
         }
         return d;
     }
     
-    static private Document addCoordinates(Document d)
+    static private Document addCoordinates(Document d, int i)
     {
         NodeList coordinates = d.getElementsByTagName("coordinates");
-        Node nNode = coordinates.item(0);
+        Node nNode = coordinates.item(i);
         System.out.println("\nCurrent Element: " + nNode.getNodeName());
         if(nNode.getNodeType()==Node.ELEMENT_NODE) 
             {
@@ -116,10 +119,12 @@ public class loadLevel
             {
                 Element eElement = (Element) nNode;
                 System.out.println("Mob's type: " + eElement.getAttribute("type"));
-                System.out.println("Mob's type: " + eElement.getAttribute("name"));
-                d=addCoordinates(d);
+                System.out.println("Mob's name: " + eElement.getAttribute("name"));
+                d=addCoordinates(d, n);
+                n++;
             }
         }
         return d;
-    } 
+    }
+              
 }
