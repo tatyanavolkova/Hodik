@@ -5,7 +5,7 @@
  */
 package hodikgit;
 
-import hodikgit.jbenua.good_robot;
+import robots.good_robot;
 
 /**
  *

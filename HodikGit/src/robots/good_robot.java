@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hodikgit.jbenua;
+package robots;
 
 import hodikgit.Coordinate;
 import hodikgit.Field;
@@ -15,21 +15,23 @@ import hodikgit.Interpretator;
  *
  * @author jbenua
  */
-public class bad_robot extends Field_object{
+public class good_robot extends Field_object{
     int xp;
-    int damage;
-    bad_robot(Field f, Integrator i, Interpretator in, Coordinate coord, int x, int d)
-    {
-        super(f, i, in, coord);
-        xp=x;
-        damage=d;
-    }
+    Unit robot;
     
+    good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int x, Unit r)
+    {
+        super(a, i, in, coord);
+        xp=x;
+        r.robots.add(this);
+        robot=r;
+    }
+
     @Override
     public void show_info()
     {
         super.show_info();
+        System.out.println("Name: "+ robot.name);
         System.out.println("XP: " + xp);
-        System.out.println("damage: " + damage);
     }
 }
