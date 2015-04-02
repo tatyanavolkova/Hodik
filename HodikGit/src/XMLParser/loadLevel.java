@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hodikgit;
+package XMLParser;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
