@@ -5,7 +5,7 @@
  */
 package hodikgit;
 import java.util.List;
-import org.javatuples.Triplet;
+//import org.javatuples.Triplet;
 
 /**
  *
@@ -13,8 +13,8 @@ import org.javatuples.Triplet;
  */
 public class Info 
 {
-    Triplet<String,Integer,Integer> triplet;
-    List<Triplet> lst;
+    //Triplet<String,Integer,Integer> triplet;
+    //List<Triplet> lst;
     String robotName;
     int x;
     int y;  
