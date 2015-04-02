@@ -6,15 +6,15 @@
 package hodikgit;
 import java.util.List;
 //import org.javatuples.Triplet;
-
+//
 /**
  *
  * @author yunna_u
  */
 public class Info 
 {
-    //Triplet<String,Integer,Integer> triplet;
-    //List<Triplet> lst;
+//    Triplet<String,Integer,Integer> triplet;
+//    List<Triplet> lst;
     String robotName;
     int x;
     int y;  
