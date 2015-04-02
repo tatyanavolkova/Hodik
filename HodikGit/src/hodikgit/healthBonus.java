@@ -5,6 +5,8 @@
  */
 package hodikgit;
 
+import hodikgit.jbenua.good_robot;
+
 /**
  *
  * @author Lenus1k

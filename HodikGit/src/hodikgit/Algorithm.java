@@ -12,14 +12,14 @@ package hodikgit;
 public class Algorithm {
     String name;
     String path;
-    Algorithm(String p)
+    public Algorithm(String p)
     {
         path=p;
         String[] a = path.split("/");
         String[] temp=(a[a.length-1]).split("\\.");
         name=temp[0];
     }
-    Algorithm(String n, String p)
+    public Algorithm(String n, String p)
     {
         name=n;
         path=p;
@@ -29,5 +29,13 @@ public class Algorithm {
         System.out.print("Algorithm name changed: " + name);
         name=newname;
         System.out.print(" -> " + name);
+    }
+    public String getname()
+    {
+        return name;
+    }
+    public String out()
+    {
+        return name + "(" + path + ")";
     }
 }

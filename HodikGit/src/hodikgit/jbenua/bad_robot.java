@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hodikgit;
+package hodikgit.jbenua;
+
+import hodikgit.Coordinate;
+import hodikgit.Field;
+import hodikgit.Field_object;
+import hodikgit.Integrator;
+import hodikgit.Interpretator;
 
 /**
  *

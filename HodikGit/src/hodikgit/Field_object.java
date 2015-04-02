@@ -21,7 +21,7 @@ public abstract class Field_object {
     */
     
     
-    Field_object(Field a, Integrator i, Interpretator in, Coordinate coord)
+    public Field_object(Field a, Integrator i, Interpretator in, Coordinate coord)
     {
         interp=in;
         field=a;
