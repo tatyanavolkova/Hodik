@@ -18,4 +18,15 @@ and open the template in the editor.
 			<coordinates x="7" y="1"></coordinates>
 		</mob>
 	</level>
+	<level number="2">	
+		<robot name ="good">
+			<coordinates x="6" y="4"></coordinates>
+		</robot>
+		<mob type="1" name="a">
+			<coordinates x="3" y="9"></coordinates>
+		</mob>
+		<mob type="2" name="b">
+			<coordinates x="1" y="1"></coordinates>
+		</mob>
+	</level>
 </game>
