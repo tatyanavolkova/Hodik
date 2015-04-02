@@ -8,25 +8,52 @@ package hodikgit;
 
 /**
  *
- * @author Арсен
+ * @author NS
  */
-public class Coordinate {
-    int x, y, p;
+public class Coordinate
+{
+    public int x;
+    public int y;
     
-    public Coordinate(){
-        x=1;
-        y=1;
-        p=0;
-    }
-    public Coordinate (int a, int b, int c){
-        this.x = a;
-        this.y = b;
-        this.p = c;
-    }
-    public String toString()
+    public Coordinate (int cordx, int cordy)
     {
-        String a=new String();
-        //
-        return a;
+        this.x = cordx;
+        this.y = cordy;
     }
+    public int getX()
+    {return x;}
+    public int getY()
+    {return y;}
+    
+    public int setX(int newx)
+    {
+        this.x = newx;
+        return x;
+    }
+    public int setY(int newy)
+    {
+        this.y = newy;
+        return y;
+    }
+
+
+@Override
+public int hashCode() 
+{
+     return x + y;
+}        
+@Override
+public boolean equals(Object obj)
+{
+    boolean result = false;
+	if (obj instanceof Coordinate)
+        {
+            Coordinate another = (Coordinate)obj;
+            if (this.getX() == another.getX() && this.getY() == another.getY())
+            {
+                result = true;
+            }
+	}
+        return result;
+}
 }

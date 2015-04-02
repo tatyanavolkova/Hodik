@@ -25,7 +25,7 @@ public class Robot {
         languages=new <File>ArrayList();
         curr = new Interpretator();
     }
-    
+    /*
     void rb_show_info (){
         System.out.println("Robot's name: "+this.rb_name);
         System.out.println("Frequency: "+this.FreqVal);
@@ -51,7 +51,9 @@ public class Robot {
     {
         System.out.println("Здесь удаляется программа из списка программ");
         //languages.remove(i);
-    }
+    }*/
+    
+    
     
     
     
