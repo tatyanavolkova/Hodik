@@ -7,25 +7,25 @@ package hodikgit;
 
 /**
  *
- * @author jbenua
+ * @author Lenus1k
  */
-public class bad_robot extends Field_object{
-    int xp;
-    int damage;
-    int act_type;
-    bad_robot(Coordinate coord, String t, int x, int a, int d)
+public class healthBonus extends Field_object {
+    int value;
+    healthBonus (Coordinate coord, String t, int value)
     {
         super(coord, t);
-        xp=x;
-        act_type=a;
-        damage=d;
+        this.value = value;
+    }
+    
+    public void addHealth (good_robot gr)
+    {
+        gr.xp+=value;
     }
     
     @Override
     public void show_info()
     {
         super.show_info();
-        System.out.println("XP: " + xp);
-        System.out.println("damage: " + damage);
+        System.out.println("Health bonus: +" + this.value +" hp");
     }
 }

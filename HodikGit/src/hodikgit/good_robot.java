@@ -5,9 +5,8 @@
  */
 package hodikgit;
 
-import java.io.File;
-import static java.lang.Integer.parseInt;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,12 +16,15 @@ public class good_robot extends Field_object{
     String name;
     int xp;
     int act_type;
-    good_robot(Coordinate coord, String t, String[] args)
+    Map<String, Algorithm> progs;
+    
+    good_robot(Coordinate coord, String t, String n, int x, int a)
     {
         super(coord, t);
-        name=args[0];
-        xp=parseInt(args[1]);
-        act_type=parseInt(args[2]);
+        name=n;
+        xp=x;
+        act_type=a;
+        progs=new HashMap<>();
     }
 
     @Override
@@ -33,10 +35,26 @@ public class good_robot extends Field_object{
         System.out.println("XP: " + xp);
     }
     
-    
-    public void rotate(){
-        
+    void add_prog(String p)
+    {
+        Algorithm a = new Algorithm(p);
+        progs.put(a.name, a);
+    }
+    void add_prog(String n, String p)
+    {
+        Algorithm a = new Algorithm(n, p);
+        progs.put(n, a);
+        System.out.println("Algorithm added: "+ a.name + a.path);
     }
     
-
+    void launch_prog(String n)
+    {
+        System.out.println("Launching program '"+ n+"'...");
+        // some_function(progs.get(n);
+    }
+    void del_prog(String n)
+    {
+        progs.remove(n);
+        System.out.println("Program '"+n+"' deleted");
+    }
 }
