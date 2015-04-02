@@ -11,9 +11,9 @@ package hodikgit;
  */
 public class healthBonus extends Field_object {
     int value;
-    healthBonus (Coordinate coord, String t, int value)
+    healthBonus (Integrator i,Coordinate coord, String t, int value)
     {
-        super(coord, t);
+        super(i, coord, t);
         this.value = value;
     }
     

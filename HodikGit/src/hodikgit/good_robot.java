@@ -18,9 +18,9 @@ public class good_robot extends Field_object{
     int act_type;
     Map<String, Algorithm> progs;
     
-    good_robot(Coordinate coord, String t, String n, int x, int a)
+    good_robot(Integrator i,Coordinate coord, String t, String n, int x, int a)
     {
-        super(coord, t);
+        super(i, coord, t);
         name=n;
         xp=x;
         act_type=a;

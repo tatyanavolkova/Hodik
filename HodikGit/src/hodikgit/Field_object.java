@@ -12,15 +12,17 @@ package hodikgit;
 public abstract class Field_object {
     String type; //"good_robot", "bad_robot", "obstacle" etc.
     Coordinate c;
+    Integrator interpr;
     /*
     aргументы:
-    good_robot(координата, "good_robot", "имя", 100, 1), где 100 - xp, 1 - тип поведения
-    bad_robot(координата, "bad_robot", 10, 1, 5), где 10 - xp, 1 - тип поведения, 5 - урон
+    good_robot(интегратор, координата, "good_robot", "имя", 100, 1), где 100 - xp, 1 - тип поведения
+    bad_robot(интегратор, координата, "bad_robot", 10, 1, 5), где 10 - xp, 1 - тип поведения, 5 - урон
     */
     
     
-    Field_object(Coordinate coord, String t)
+    Field_object(Integrator i, Coordinate coord, String t)
     {
+        interpr=i;
         c=coord;
         type=t;
     };
