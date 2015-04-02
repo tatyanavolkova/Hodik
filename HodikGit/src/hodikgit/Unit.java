@@ -20,6 +20,7 @@ public class Unit {
     Unit(String n)
     {
         name=n;
+        robots=new ArrayList();
         progs=new HashMap<>();
     }
     void add_prog(String p)
