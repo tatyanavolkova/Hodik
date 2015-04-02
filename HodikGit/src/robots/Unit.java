@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hodikgit;
+package robots;
 
+import hodikgit.Algorithm;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,19 +21,20 @@ public class Unit {
     Unit(String n)
     {
         name=n;
+        robots=new ArrayList();
         progs=new HashMap<>();
     }
     void add_prog(String p)
     {
         Algorithm a = new Algorithm(p);
-        progs.put(a.name, a);
+        progs.put(a.getname(), a);
     }
     
     void add_prog(String n, String p)
     {
         Algorithm a = new Algorithm(n, p);
         progs.put(n, a);
-        System.out.println("Algorithm added: "+ a.name + a.path);
+        System.out.println("Algorithm added: "+ a.out());
     }
     
     

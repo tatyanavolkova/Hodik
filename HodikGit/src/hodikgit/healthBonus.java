@@ -5,27 +5,30 @@
  */
 package hodikgit;
 
+//import robots.good_robot;
+
 /**
  *
  * @author Lenus1k
  */
 public class healthBonus extends Field_object {
-    int value;
-    healthBonus (Integrator i,Coordinate coord, String t, int value)
-    {
-        super(i, coord, t);
-        this.value = value;
-    }
+    int hp;
     
-    public void addHealth (good_robot gr)
+    public healthBonus(Field a, Integrator i, Interpretator in, Coordinate coord, int hp)
     {
-        gr.xp+=value;
+        super (a,i,in,coord);
+        this.hp=hp;
+    };
+    
+    public void healRobot (good_robot gr)
+    {
+        gr.xp+=hp;
     }
     
     @Override
     public void show_info()
     {
         super.show_info();
-        System.out.println("Health bonus: +" + this.value +" hp");
+        System.out.println("Health bonus: +" + this.hp +" hp");
     }
 }
