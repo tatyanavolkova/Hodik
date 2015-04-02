@@ -12,12 +12,10 @@ package hodikgit;
 public class bad_robot extends Field_object{
     int xp;
     int damage;
-    int act_type;
-    bad_robot(Integrator i,Coordinate coord, String t, int x, int a, int d)
+    bad_robot(Field f, Integrator i, Interpretator in, Coordinate coord, int x, int d)
     {
-        super(i, coord, t);
+        super(f, i, in, coord);
         xp=x;
-        act_type=a;
         damage=d;
     }
     

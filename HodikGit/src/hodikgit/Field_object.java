@@ -10,26 +10,28 @@ package hodikgit;
  * @author jbenua
  */
 public abstract class Field_object {
-    String type; //"good_robot", "bad_robot", "obstacle" etc.
     Coordinate c;
-    Integrator interpr;
+    Field field;
+    Integrator integr;
+    Interpretator interp;
     /*
     aргументы:
-    good_robot(интегратор, координата, "good_robot", "имя", 100, 1), где 100 - xp, 1 - тип поведения
-    bad_robot(интегратор, координата, "bad_robot", 10, 1, 5), где 10 - xp, 1 - тип поведения, 5 - урон
+    good_robot(поле, интегратор, интерпретатор, координата, 100, robot), где 100 - xp, robot - объект класса Unit
+    bad_robot(поле, интегратор, интерпретатор, координата, 10, 5), где 10 - xp, 1 - тип поведения, 5 - урон
     */
     
     
-    Field_object(Integrator i, Coordinate coord, String t)
+    Field_object(Field a, Integrator i, Interpretator in, Coordinate coord)
     {
-        interpr=i;
+        interp=in;
+        field=a;
+        integr=i;
         c=coord;
-        type=t;
     };
     
     public void show_info()
     {
-        System.out.println("Type: " + type);
+        System.out.println("Hey! I'm on the field "+ field);
         System.out.println("Coords: " + c);
     }
 }
