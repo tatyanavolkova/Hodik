@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<game>
+	<level number="1">	
+		<robot name ="good">
+			<coordinates x="5" y="1"></coordinates>
+		</robot>
+		<mob type="1" name="a">
+			<coordinates x="7" y="9"></coordinates>
+		</mob>
+		<mob type="2" name="b">
+			<coordinates x="7" y="1"></coordinates>
+		</mob>
+	</level>
+</game>

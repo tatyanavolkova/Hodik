@@ -23,4 +23,10 @@ public class Coordinate {
         this.y = b;
         this.p = c;
     }
+    public String toString()
+    {
+        String a=new String();
+        //
+        return a;
+    }
 }
