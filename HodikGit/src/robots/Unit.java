@@ -7,6 +7,7 @@ package robots;
 
 import hodikgit.Algorithm;
 import hodikgit.Coordinate;
+import hodikgit.Direction;
 import hodikgit.Field;
 import hodikgit.Integrator;
 import hodikgit.Interpretator;
@@ -29,8 +30,8 @@ public class Unit {
         progs=new HashMap<>();
     }
     
-    void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int xp){
-        good_robot r=new good_robot(a, i, in, coord, xp, this);
+    void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, Direction d,  int xp){
+        good_robot r=new good_robot(a, i, in, coord, xp, d, this);
     }
     
     void add_prog(String p)
