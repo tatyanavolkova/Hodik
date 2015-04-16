@@ -11,6 +11,7 @@ import hodikgit.Direction;
 import hodikgit.Field;
 import hodikgit.Integrator;
 import hodikgit.Interpretator;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,16 +35,36 @@ public class Unit {
         good_robot r=new good_robot(a, i, in, coord, xp, d, this);
     }
     
-    void add_prog(String p)
+    boolean check_if_prog_exists(String path)
     {
-        Algorithm a = new Algorithm(p);
-        progs.put(a.getname(), a);
+        File f = new File(path);
+        if(f.exists() && !f.isDirectory())
+            return true;
+        else return false;
     }
-    void add_prog(String n, String p)
+    
+    boolean add_prog(String p)
     {
-        Algorithm a = new Algorithm(n, p);
-        progs.put(n, a);
-        System.out.println("Algorithm added: "+ a.out());
+        if (check_if_prog_exists(p))
+        {
+            Algorithm a = new Algorithm(p);
+            progs.put(a.getname(), a);
+            return true;
+        }
+        else 
+            return false;
+    }
+    boolean add_prog(String n, String p)
+    {
+        if (check_if_prog_exists(p))
+        {
+            Algorithm a = new Algorithm(n, p);
+            progs.put(n, a);
+            System.out.println("Algorithm added: "+ a.out());
+            return true;
+        }
+        else 
+            return false;
     }    
     void launch_prog(String n)
     {

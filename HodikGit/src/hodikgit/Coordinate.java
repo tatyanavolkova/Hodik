@@ -12,8 +12,8 @@ package hodikgit;
  */
 public class Coordinate
 {
-    public int x;
-    public int y;
+    public int x=0;
+    public int y=0;
     
     public Coordinate (int cordx, int cordy)
     {
