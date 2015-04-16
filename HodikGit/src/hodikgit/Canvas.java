@@ -53,7 +53,7 @@ public class Canvas extends JPanel {
         } catch (IOException e) {
         }
     }
-    public void paint(Graphics g) {
+    /*public void paint(Graphics g) {
         super.paint(g);
         g.setColor(Color.black);
         for(int i=0;i<=fieldSizeY;i++)
@@ -74,9 +74,9 @@ public class Canvas extends JPanel {
            drawRobot(g,robot.curr.c.x-integr.field.initX,robot.curr.c.y-
                    integr.field.initY,robot.curr.c.p);
 
-       /* for(int i=0;i<obstacles.size();i++){  
+        for(int i=0;i<obstacles.size();i++){  
             drawObstacle(g, obstacles.get(i).x, obstacles.get(i).x);
-        }*/
+        }
     }
     
     void drawObstacle(Graphics g, int cellX, int cellY)
@@ -85,6 +85,7 @@ public class Canvas extends JPanel {
                 fieldLeftTopY+fieldCellSize*(cellY-1),
                 fieldCellSize,fieldCellSize,null);
     }
+
     void drawRobot(Graphics g, int cellX, int cellY, int dir)
     {
         switch (dir)
@@ -105,5 +106,5 @@ public class Canvas extends JPanel {
                     fieldCellSize,fieldCellSize,null);
                 break;
         }
-    }
+    }*/
 }

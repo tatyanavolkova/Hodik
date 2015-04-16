@@ -15,6 +15,11 @@ public class Coordinate
     public int x=0;
     public int y=0;
     
+    public Coordinate()
+    {
+        
+    }
+    
     public Coordinate (int cordx, int cordy)
     {
         this.x = cordx;
@@ -56,4 +61,5 @@ public boolean equals(Object obj)
 	}
         return result;
 }
+
 }
