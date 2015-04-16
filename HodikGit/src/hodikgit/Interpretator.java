@@ -4,6 +4,7 @@
  */
 package hodikgit;
 
+import hodikgit.Coordinate;
 import java.io.File;
 
 /**
