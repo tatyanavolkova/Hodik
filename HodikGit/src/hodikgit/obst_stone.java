@@ -10,15 +10,18 @@ package hodikgit;
  * @author Lenus1k
  */
 public class obst_stone extends Field_object {
-    obst_stone (Integrator i,Coordinate coord, String t)
-    {
-        super (i, coord,t);
-    }
     
-    /*public void bump()
+    int damage;
+    public obst_stone(Field a, Integrator i, Interpretator in, Coordinate coord, int dmg)
     {
-        do something if robot bumps into the stone
-    }*/
+        super (a,i,in,coord);
+        this.damage=dmg;
+    };
+    
+    public void damageRobot(good_robot gr)
+    {
+        gr.xp-=damage;
+    }
     
     @Override
     public void show_info()

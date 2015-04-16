@@ -22,12 +22,8 @@ import org.xml.sax.SAXException;
 public class loadLevel 
 {
     Info info;
-    loadLevel() throws Exception
-    {
-        getDocument();
-    }
-    
-    private static void getDocument() throws Exception 
+    int k=0;
+    public void getDocument() throws Exception 
     {
         try 
         {
@@ -43,7 +39,7 @@ public class loadLevel
         }
     }
     
-    public static void XMLParser(Document d)
+    private void XMLParser(Document d)
     {
         d.getDocumentElement().normalize();
         Element root=d.getDocumentElement();                                    // корневой элемент документа
@@ -59,6 +55,7 @@ public class loadLevel
 
             Element el = (Element) level;
             System.out.println("Level number: " + el.getAttribute("number") + "\n");
+            info.levelNumber=Integer.valueOf(el.getAttribute("number"));
             addRobot(level);
             System.out.println("Robot added");
             addMobs(level);
@@ -66,7 +63,7 @@ public class loadLevel
         } 
     }
     
-    static private void addRobot(Node level)
+    private void addRobot(Node level)
     {
         Node robot=level.getFirstChild();
         do
@@ -77,10 +74,11 @@ public class loadLevel
 
         Element el = (Element) robot;
         System.out.println("Robot's name: " + el.getAttribute("name"));
-        addCoordinates(robot);
+        info.robotName=el.getAttribute("name");
+        addCoordinates(robot,0);
     }
     
-    static private void addCoordinates(Node character)
+    private void addCoordinates(Node character, int i)
     {
         Node coordinates=character.getFirstChild();
         do
@@ -92,9 +90,19 @@ public class loadLevel
         Element el = (Element) coordinates;
         System.out.println("Coordinate x: " + el.getAttribute("x"));
         System.out.println("Coordinate y: " + el.getAttribute("y") + "\n");
+        if("robot".equals(character.getNodeName()))
+        {
+            info.x=Integer.valueOf(el.getAttribute("x"));
+            info.y=Integer.valueOf(el.getAttribute("y"));
+        }
+        else
+        {
+            info.mob.get(k).x=Integer.valueOf(el.getAttribute("x"));
+            info.mob.get(k).y=Integer.valueOf(el.getAttribute("y"));
+        }
     }
     
-    static private void addMobs(Node level)
+    private void addMobs(Node level)
     {
         NodeList mobs=level.getChildNodes();
         for(int i=2;i<mobs.getLength();i++)
@@ -104,8 +112,11 @@ public class loadLevel
                 Element el = (Element) mobs.item(i);   
                 System.out.println("Mob's type: " + el.getAttribute("type"));
                 System.out.println("Mob's name: " + el.getAttribute("name"));
-                addCoordinates(mobs.item(i));
+                info.mob.get(k).type=el.getAttribute("type");
+                addCoordinates(mobs.item(i),k);
                 System.out.println("Mob added");
+                k++;
+               
             }
         }
     }
