@@ -6,6 +6,10 @@
 package robots;
 
 import hodikgit.Algorithm;
+import hodikgit.Coordinate;
+import hodikgit.Field;
+import hodikgit.Integrator;
+import hodikgit.Interpretator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,20 +28,22 @@ public class Unit {
         robots=new ArrayList();
         progs=new HashMap<>();
     }
+    
+    void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int xp){
+        good_robot r=new good_robot(a, i, in, coord, xp, this);
+    }
+    
     void add_prog(String p)
     {
         Algorithm a = new Algorithm(p);
         progs.put(a.getname(), a);
     }
-    
     void add_prog(String n, String p)
     {
         Algorithm a = new Algorithm(n, p);
         progs.put(n, a);
         System.out.println("Algorithm added: "+ a.out());
-    }
-    
-    
+    }    
     void launch_prog(String n)
     {
         System.out.println("Launching program '"+ n+"'...");
