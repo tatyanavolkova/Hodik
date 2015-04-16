@@ -17,7 +17,7 @@ import hodikgit.Interpretator;
  * @author jbenua
  */
 public class good_robot extends Field_object{
-    int xp;
+    public int xp;
     Unit robot;
     Direction dir;
     
