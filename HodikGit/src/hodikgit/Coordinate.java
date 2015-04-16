@@ -12,18 +12,16 @@ package hodikgit;
  */
 public class Coordinate
 {
-    public int x=0;
-    public int y=0;
-    
-    public Coordinate()
-    {
-        
+    public int x;
+    public int y;
+    public Coordinate(){
+        x=0;
+        y=0;
     }
-    
     public Coordinate (int cordx, int cordy)
     {
-        this.x = cordx;
-        this.y = cordy;
+        x = cordx;
+        y = cordy;
     }
     public int getX()
     {return x;}
