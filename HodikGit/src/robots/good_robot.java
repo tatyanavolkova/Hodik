@@ -28,7 +28,11 @@ public class good_robot extends Field_object{
         dir=d;
         robot=r;
     }
-
+    
+    public void setCoords(Coordinate newC){
+        c=newC;
+    }
+    
     @Override
     public void show_info()
     {
