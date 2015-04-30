@@ -23,6 +23,7 @@ public abstract class Field_object {
     {
         return c;
     }
+    
     public Interpretator getInterpr()
     {
         return interp;
