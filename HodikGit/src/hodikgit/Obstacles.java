@@ -12,10 +12,10 @@ import robots.good_robot;
  *
  * @author Lenus1k
  */
-public class obst_stone extends Field_object {
+public class Obstacles extends Field_object {
     
     int damage;
-    public obst_stone(Field a, Integrator i, Interpretator in, Coordinate coord, int dmg)
+    public Obstacles(Field a, Integrator i, Interpretator in, Coordinate coord, int dmg)
     {
         super (a,i,in,coord);
         this.damage=dmg;
