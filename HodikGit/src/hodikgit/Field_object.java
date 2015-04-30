@@ -26,7 +26,11 @@ public abstract class Field_object {
         interp=in;
         field=a;
         integr=i;
-        c=coord;
+        if (!a.isFilled(coord))
+            c=coord;
+        else
+            System.out.print("WARNING!!! THE CELL IS ALREADY TAKEN");
+            //get another cell
     };
     
     public void show_info()
