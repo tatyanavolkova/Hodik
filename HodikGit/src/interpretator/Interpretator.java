@@ -16,9 +16,6 @@ import robots.good_robot;
  */
 public final class Interpretator {
 
-    /**
-     * @param args the command line arguments
-     */
     Parser parser;
     Boolean debugMode = false;
     good_robot currRobot;
@@ -35,6 +32,7 @@ public final class Interpretator {
         cmdList = parser.getList();
         iterator = cmdList.iterator();
     }
+    
     void run() {
         if (debugMode) {
             //NTD
