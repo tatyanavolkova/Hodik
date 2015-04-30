@@ -39,9 +39,7 @@ public class Unit {
     boolean check_if_prog_exists(String path)
     {
         File f = new File(path);
-        if(f.exists() && !f.isDirectory())
-            return true;
-        else return false;
+        return f.exists() && !f.isDirectory();
     }
     
     boolean add_prog(String p)
@@ -81,6 +79,7 @@ public class Unit {
         else
             in.translate(n, cur);
     }
+    
     void del_prog(String n)
     {
         progs.remove(n);

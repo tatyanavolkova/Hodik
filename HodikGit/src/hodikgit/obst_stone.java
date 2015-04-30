@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hodikgit;
+import interpretator.Interpretator;
 import robots.Unit;
 import robots.good_robot;
 
