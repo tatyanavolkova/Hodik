@@ -35,22 +35,42 @@ public class Rotate implements CMD
     public String Rotate()
     {
         switch(direction){
-            case "up":
-                currRobot.dir=Direction.UP;
-                break;
+//            case "up":
+//                dir=Direction.UP;
+//                break;
             case "left":
-                currRobot.dir=Direction.LEFT;
+                if(currRobot.dir==Direction.DOWN){
+                    currRobot.dir=Direction.RIGHT;
+                }
+                if(currRobot.dir==Direction.LEFT){
+                    currRobot.dir=Direction.DOWN;
+                }
+                if(currRobot.dir==Direction.UP){
+                    currRobot.dir=Direction.LEFT;
+                }
+                if(currRobot.dir==Direction.RIGHT){
+                    currRobot.dir=Direction.UP;
+                }
                 break;
             case "right":
-                currRobot.dir=Direction.RIGHT;
+                if(currRobot.dir==Direction.DOWN){
+                    currRobot.dir=Direction.LEFT;
+                }
+                if(currRobot.dir==Direction.LEFT){
+                    currRobot.dir=Direction.UP;
+                }
+                if(currRobot.dir==Direction.UP){
+                    currRobot.dir=Direction.RIGHT;
+                }
+                if(currRobot.dir==Direction.RIGHT){
+                    currRobot.dir=Direction.DOWN;
+                }
                 break;
-            case "down":
-                currRobot.dir=Direction.DOWN; 
-                break;
+//            case "down":
+//                dir=Direction.DOWN; 
+//                break;
         }
         return "newOrientation "+currRobot.dir.name();
     }
 }
    
-
-
