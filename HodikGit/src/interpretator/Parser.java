@@ -30,7 +30,7 @@ public final class Parser {
 
     Coordinate c=new Coordinate(2,3);
     Direction d;
-    private static Logger log = Logger.getLogger(Parser.class.getName());
+    private static final Logger log = Logger.getLogger(Parser.class.getName());
     good_robot currRobot;
     ArrayList<String> alphabet = new ArrayList();
     ArrayList<String> readedText = new ArrayList();
