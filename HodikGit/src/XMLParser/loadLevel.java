@@ -29,14 +29,15 @@ public class loadLevel
     int k=0;
     int t=0;
     boolean ind=true;
-    public void getDocument() throws Exception 
+    
+    public void getDocument(String filename) throws Exception 
     {
         try 
         {
             DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();    // получаем xml парсер с настройками по умолчанию
             f.setValidating(false);
             DocumentBuilder builder = f.newDocumentBuilder();
-            XMLParser(builder.parse(new File("levels.xml")));
+            XMLParser(builder.parse(new File(filename)));
         } 
         catch (ParserConfigurationException | SAXException | IOException exception) 
         {
