@@ -12,7 +12,7 @@ package hodikgit;
 public class Algorithm {
     String name;
     String path;
-    int state=0; // 0 - empty, 1 - file path, 2 - translated algorithm
+    int state=0; // 0 - empty, 1 - file path
     public Algorithm(String p)
     {
         path=p;
@@ -26,6 +26,10 @@ public class Algorithm {
         name=n;
         path=p;
         state=1;
+    }
+    public int getState()
+    {
+        return state;
     }
     public void changeName(String newname)
     {

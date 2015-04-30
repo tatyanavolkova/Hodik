@@ -10,16 +10,19 @@ package hodikgit;
  * @author jbenua
  */
 public abstract class Field_object {
-    protected Coordinate c;
-    protected Field field;
-    protected Integrator integr;
-    protected Interpretator interp;
+    Coordinate c;
+    Field field;
+    Integrator integr;
+    Interpretator interp;
     /*
     aргументы:
     good_robot(поле, интегратор, интерпретатор, координата, 100, robot), где 100 - xp, robot - объект класса Unit
     bad_robot(поле, интегратор, интерпретатор, координата, 10, 5, "act_type"), где 10 - xp, 1 - тип поведения, 5 - урон
     */
-    
+    public Interpretator getInterpr()
+    {
+        return interp;
+    }
     
     public Field_object(Field a, Integrator i, Interpretator in, Coordinate coord)
     {

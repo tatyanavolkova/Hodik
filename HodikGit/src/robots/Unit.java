@@ -71,8 +71,16 @@ public class Unit {
     {
         System.out.println("Launching program '"+ n+"'...");
         Algorithm alg=progs.get(n);
-        //robots.get(rob)
-        // some_function(progs.get(n);
+        Interpretator in=robots.get(rob).getInterpr();
+        if (alg.getState()==0)
+        {
+            System.out.println("NO FILE");
+            //raise error;
+        }
+        else
+        {
+            //launch;
+        }
     }
     void del_prog(String n)
     {

@@ -44,5 +44,5 @@ public final class Interpretator {
         iterator= cmdList.iterator();
         run();
     }
-
+    
 }
