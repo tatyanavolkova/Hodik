@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package hodikgit;
-
+import java.io.File;
+import java.util.ArrayList;
+import robots.good_robot;
 /**
  *
  * @author r545-2 Syzko Anastasia
@@ -18,9 +20,17 @@ package hodikgit;
 
 // Если на поле несколько роботов?
 public class Scores {
-   public int InitialScore; // исходные очки 0 или нек-ое число?
+   public int init=0; // исходные очки 0 или нек-ое число?
    public int StepScore;
   public int BumbedInto; //счётчик препятствий, на которые попал робот(кстати,
   //необязательно это число меньше или равно числу имеющихся препятствий :) )
   public int Eaten; // для бонусов
+ // good_robot gr
+  
+  // Stepscore берётся из действий робота
+  public void   AddScore( int init){
+  init=init+StepScore;
+  }
 }
+//добавить проверку на достижение коордитаны-цели
+// добавить окно вывода результата?
