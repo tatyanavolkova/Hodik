@@ -19,11 +19,13 @@ public class Algorithm {
         String[] a = path.split("/");
         String[] temp=(a[a.length-1]).split("\\.");
         name=temp[0];
+        state=1;
     }
     public Algorithm(String n, String p)
     {
         name=n;
         path=p;
+        state=1;
     }
     public void changeName(String newname)
     {

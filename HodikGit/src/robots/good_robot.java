@@ -26,7 +26,6 @@ public class good_robot extends Field_object{
         super(a, i, in, coord);
         xp=x;
         dir=d;
-        r.robots.add(this);
         robot=r;
     }
 
