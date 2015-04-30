@@ -359,7 +359,8 @@ public class MainFrm extends javax.swing.JFrame {
      
      for (int i = 0; ;i++)
      {
-         if (rObj.curr.Run(i)) break;
+         //if (rObj.curr.Run(i)) break;
+         //uncomment this if you uncomment it in the Interpretator
          this.myWindow.getC().repaint();
          String strCoord = "x = " + rObj.curr.c.x + " y = " + rObj.curr.c.y;
          System.out.println(strCoord);
