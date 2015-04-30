@@ -21,8 +21,7 @@ public class Integrator {
     //java.util.Timer timer;
     Vector<Field> fields; //коллекция полей
     Vector<Unit> units; //коллекция роботов
-    JFrame frm;
-    Field field;
+    
     
     Integrator(){
 
