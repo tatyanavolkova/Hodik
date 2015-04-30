@@ -10,7 +10,7 @@ import hodikgit.Coordinate;
 import hodikgit.Direction;
 import hodikgit.Field;
 import hodikgit.Integrator;
-import hodikgit.Interpretator;
+import interpretator.Interpretator;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,16 +71,15 @@ public class Unit {
     {
         System.out.println("Launching program '"+ n+"'...");
         Algorithm alg=progs.get(n);
-        Interpretator in=robots.get(rob).getInterpr();
+        good_robot cur=robots.get(rob);
+        Interpretator in=cur.getInterpr();
         if (alg.getState()==0)
         {
             System.out.println("NO FILE");
             //raise error;
         }
         else
-        {
-            //launch;
-        }
+            in.translate(n, cur);
     }
     void del_prog(String n)
     {
