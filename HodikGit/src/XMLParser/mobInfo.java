@@ -7,10 +7,11 @@ package XMLParser;
 
 /**
  *
- * @author j-june
+ * @author yunna_u
  */
 public class mobInfo 
 {
+    String name;
     String type;
     int x;
     int y;

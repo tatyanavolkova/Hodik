@@ -21,6 +21,7 @@ import org.xml.sax.SAXException;
  */
 public class loadLevel 
 {
+    int mode=1;
     Info info;
     int k=0;
     public void getDocument() throws Exception 
@@ -78,7 +79,7 @@ public class loadLevel
         addCoordinates(robot,0);
     }
     
-    private void addCoordinates(Node character, int i)
+    private void addCoordinates(Node character, int k)
     {
         Node coordinates=character.getFirstChild();
         do
@@ -109,14 +110,27 @@ public class loadLevel
         {
             if(mobs.item(i).getNodeType()==Node.ELEMENT_NODE)
             {
-                Element el = (Element) mobs.item(i);   
-                System.out.println("Mob's type: " + el.getAttribute("type"));
-                System.out.println("Mob's name: " + el.getAttribute("name"));
-                info.mob.get(k).type=el.getAttribute("type");
-                addCoordinates(mobs.item(i),k);
-                System.out.println("Mob added");
-                k++;
-               
+                if("mob".equals(mobs.item(i).getNodeName()))
+                {
+                    Element el = (Element) mobs.item(i);   
+                    System.out.println("Mob's type: " + el.getAttribute("type"));
+                    info.mob.get(k).type="mob";
+                    info.mob.get(k).name=el.getAttribute("type");
+                    addCoordinates(mobs.item(i), k);
+                    System.out.println("Mob added" + "\n");
+                    k++;
+                }
+                if("obstacle".equals(mobs.item(i).getNodeName()))
+                {
+                    Element el = (Element) mobs.item(i);   
+                    System.out.println("Obstacle's type: " + el.getAttribute("type"));
+                    info.mob.get(k).type="obstacle";
+                    info.mob.get(k).name=el.getAttribute("type");
+                    addCoordinates(mobs.item(i), k);
+                    System.out.println("Obstacle added" + "\n");
+                    k++;
+                }
+                
             }
         }
     }

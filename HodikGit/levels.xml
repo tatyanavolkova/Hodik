@@ -17,6 +17,12 @@ and open the template in the editor.
 		<mob type="2" name="b">
 			<coordinates x="7" y="1"></coordinates>
 		</mob>
+		<obstacle type="1">
+			<coordinates x="4" y="7"></coordinates>
+		</obstacle
+		<obstacle type="2">
+			<coordinates x="8" y="1"></coordinates>
+		</obstacle>
 	</level>
 	<level number="2">	
 		<robot name ="good">
@@ -28,5 +34,11 @@ and open the template in the editor.
 		<mob type="2" name="b">
 			<coordinates x="1" y="1"></coordinates>
 		</mob>
+		<obstacle type="3">
+			<coordinates x="2" y="8"></coordinates>
+		</obstacle
+		<obstacle type="4">
+			<coordinates x="6" y="4"></coordinates>
+		</obstacle>
 	</level>
 </game>

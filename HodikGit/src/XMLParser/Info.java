@@ -20,4 +20,5 @@ public class Info
     int x;
     int y;  
     List<mobInfo> mob = new ArrayList();
+    
 }
