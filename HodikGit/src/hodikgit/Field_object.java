@@ -17,13 +17,25 @@ public abstract class Field_object {
     /*
     aргументы:
     good_robot(поле, интегратор, интерпретатор, координата, 100, robot), где 100 - xp, robot - объект класса Unit
-    bad_robot(поле, интегратор, интерпретатор, координата, 10, 5, "act_type"), где 10 - xp, 1 - тип поведения, 5 - урон
+    bad_robot(поле, интегратор, интерпретатор, координата, "act_type")
     */
     public Coordinate getCoord()
     {
         return c;
     }
-    
+    public void setCoord(Coordinate coord)
+    {
+        c.x=coord.x;
+        c.y=coord.y;
+    }
+    public Field getField()
+    {
+        return field;
+    }
+    public int getLevel()
+    {
+        return field.level;
+    }
     public Interpretator getInterpr()
     {
         return interp;

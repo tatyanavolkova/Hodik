@@ -5,6 +5,7 @@
  */
 package robots;
 
+import XMLParser.Info;
 import hodikgit.Algorithm;
 import hodikgit.Coordinate;
 import hodikgit.Direction;
@@ -30,18 +31,15 @@ public class Unit {
         robots=new ArrayList();
         progs=new HashMap<>();
     }
-    
     void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, Direction d,  int xp){
         good_robot r=new good_robot(a, i, in, coord, xp, d, this);
         robots.add(r);
     }
-    
     boolean check_if_prog_exists(String path)
     {
         File f = new File(path);
         return f.exists() && !f.isDirectory();
     }
-    
     boolean add_prog(String p)
     {
         if (check_if_prog_exists(p))
@@ -78,12 +76,21 @@ public class Unit {
         }
         else
             in.translate(n, cur);
-    }
-    
+    }  
     void del_prog(String n)
     {
         progs.remove(n);
         System.out.println("Program '"+n+"' deleted");
     }
-    
+    public ArrayList<Info> save()
+    {
+        ArrayList<Info> info=new ArrayList();
+        for (good_robot i : robots)
+        {
+            Info temp=new Info(name, i.getLevel(), i.getCoord(), i.xp);
+            temp.loadMobs(i.getField());
+            info.add(temp);
+        }
+        return info;
+    }
 }

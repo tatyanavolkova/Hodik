@@ -6,6 +6,8 @@ package XMLParser;
  * and open the template in the editor.
  */
 
+import hodikgit.Coordinate;
+import hodikgit.Field;
 import java.util.ArrayList;
 import java.util.List;
 //
@@ -22,4 +24,16 @@ public class Info
     int HP;
     List<mobInfo> mob = new ArrayList();
     
+    public Info(String name, int ln, Coordinate c, int h)
+    {
+        robotName=name;
+        levelNumber=ln;
+        x=c.getX();
+        y=c.getY();
+        HP=h;
+    }
+    public void loadMobs(Field a)
+    {
+        
+    }
 }

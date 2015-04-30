@@ -23,7 +23,7 @@ and open the template in the editor.
 		<obstacle type="1">
 			<coordinates x="4" y="7"></coordinates>
 			<hp></hp>
-		</obstacle
+		</obstacle>
 		<obstacle type="2">
 			<coordinates x="8" y="1"></coordinates>
 			<hp></hp>
@@ -45,7 +45,7 @@ and open the template in the editor.
 		<obstacle type="3">
 			<coordinates x="2" y="8"></coordinates>
 			<hp></hp>
-		</obstacle
+		</obstacle>
 		<obstacle type="4">
 			<coordinates x="6" y="4"></coordinates>
 			<hp></hp>
