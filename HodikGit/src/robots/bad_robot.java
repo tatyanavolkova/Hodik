@@ -24,6 +24,14 @@ public class bad_robot extends Field_object{
         act_type=type;
         this.setDamage();
     }
+    @Override
+    public String getActtype(){
+        return act_type;
+    }
+    @Override
+    public int getDamage(){
+        return damage;
+    }
     private void setDamage()
     {
         //
@@ -36,5 +44,10 @@ public class bad_robot extends Field_object{
     {
         super.show_info();
         System.out.println("damage: " + damage);
+    }
+
+    @Override
+    public String getType() {
+        return "mob";
     }
 }

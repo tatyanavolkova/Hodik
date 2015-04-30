@@ -36,4 +36,19 @@ public class good_robot extends Field_object{
         System.out.println("Name: "+ robot.name);
         System.out.println("XP: " + xp);
     }
+
+    @Override
+    public String getType() {
+        return "robot";
+    }
+
+    @Override
+    public String getActtype() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDamage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

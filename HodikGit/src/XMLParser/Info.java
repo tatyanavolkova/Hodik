@@ -8,8 +8,11 @@ package XMLParser;
 
 import hodikgit.Coordinate;
 import hodikgit.Field;
+import hodikgit.Field_object;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 //
 /**
  *
@@ -23,7 +26,7 @@ public class Info
     int y;  
     int HP;
     List<mobInfo> mob = new ArrayList();
-    
+    public Info(){};
     public Info(String name, int ln, Coordinate c, int h)
     {
         robotName=name;
@@ -34,6 +37,18 @@ public class Info
     }
     public void loadMobs(Field a)
     {
-        
+        HashMap<Coordinate, Field_object> objects=a.getHex();
+        for (Coordinate key : objects.keySet()) {
+            Field_object item=objects.get(key);
+            mobInfo info=new mobInfo();
+            info.type=item.getType();
+            if (!"obstacle".equals(info.type))
+            {
+                info.name=item.getActtype();
+                info.hp=item.getDamage();
+            }
+            info.setCoords(item.getCoord());
+            mob.add(info);
+        }
     }
 }

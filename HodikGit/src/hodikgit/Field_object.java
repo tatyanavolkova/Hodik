@@ -23,6 +23,7 @@ public abstract class Field_object {
     {
         return c;
     }
+    abstract public String getType();
     public void setCoord(Coordinate coord)
     {
         c.x=coord.x;
@@ -53,4 +54,6 @@ public abstract class Field_object {
     {
         System.out.println("Hey! I'm on the field! Coords: " + c);
     }
+    abstract public String getActtype();
+    abstract public int getDamage();
 }
