@@ -6,8 +6,6 @@
 package XMLParser;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -24,7 +22,6 @@ import org.xml.sax.SAXException;
 public class loadLevel 
 {
     Info info = new Info();
-    List<Info> InfoList = new ArrayList();
     mobInfo mInfo = new mobInfo();
     int k=0;
     int t=0;
@@ -50,27 +47,22 @@ public class loadLevel
     {
         d.getDocumentElement().normalize();
         Element root=d.getDocumentElement();                                    // корневой элемент документа
-        NodeList levels=root.getChildNodes();
         Node level=root.getFirstChild();
-        for(int i=0;i<levels.getLength();i++)
+        do
         {
-            do
-            {
-                level=level.getNextSibling();
-            } 
-            while(level.getNodeType()!=Node.ELEMENT_NODE);
-
-            Element el = (Element) level;
-            System.out.println("Level number: " + el.getAttribute("number") + "\n");
-            info.levelNumber=Integer.valueOf(el.getAttribute("number"));
-            addRobot(level);
-            System.out.println("Robot added" + "\n");
-            addMobs(level);
-            System.out.println("Mobs added" + "\n");
-            System.out.println("Level added" + "\n");
-            InfoList.add(t,info);
-            t++;
+            level=level.getNextSibling();
         } 
+        while(level.getNodeType()!=Node.ELEMENT_NODE);
+
+        Element el = (Element) level;
+        System.out.println("Level number: " + el.getAttribute("number") + "\n");
+        info.levelNumber=Integer.valueOf(el.getAttribute("number"));
+        addRobot(level);
+        System.out.println("Robot added" + "\n");
+        addMobs(level);
+        System.out.println("Mobs added" + "\n");
+        System.out.println("Level added" + "\n");
+        t++; 
     }
     
     private void addRobot(Node level)
