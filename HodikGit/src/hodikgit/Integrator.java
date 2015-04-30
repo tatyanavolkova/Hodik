@@ -29,12 +29,31 @@ public class Integrator {
        fields = new Vector<Field>();
        units = new Vector<Unit>();
        
-       //считать роботов и поместить в вектор units
-       //считать поле и поместить в вектор fields
+       if (true) //выбрать имеющегося робота
+       {
+           //загрузить поле, поместить в вектор fields
+           //загрузить робота, поместить в вектор units
+       } else 
+       { 
+           //создать робота, поместить в вектор units
+           //выбрать планету и подгрузить поле, поместить в вектор fields
+       }
        
        
+         
+         /*Field field = new Field(10,10);
+         rMap = new HashMap<String, Robot>();
+         rMap.put("nasa",new Robot("nasa", 33));
+         rMap.put("saturn",new Robot("saturn", 66));
+         // for(int i=0;i<this.RobCollection.size();i++)
+         //     System.out.print(this.RobCollection.get(i).RName);
+         //myfr = new MainFr();
+         LoginFrm logfr = new LoginFrm(this);
+         logfr.setVisible(true);
+         logfr.setLocationRelativeTo(null);*/
+         
         
-       Field field = new Field(10,10);
+       /*Field field = new Field(10,10);
        rMap = new HashMap<String, Robot>();
        rMap.put("nasa",new Robot("nasa", 33));
        rMap.put("saturn",new Robot("saturn", 66));
@@ -44,18 +63,7 @@ public class Integrator {
        //myfr = new MainFr(); 
        LoginFrm logfr = new LoginFrm(this);
        logfr.setVisible(true); 
-       logfr.setLocationRelativeTo(null);
+       logfr.setLocationRelativeTo(null);*/
     }
-    
-    //передвинуть робота
-    //{
-    //проверить позицию
-    //обратиться к полю и изменить координаты
-    //прерисовать поле
-    //}
-    
-    //проверить позицию робота
-    
-    //перерисовать поле
    
 }
