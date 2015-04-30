@@ -8,6 +8,7 @@ package interpretator;
 import interpretator.cmd.CMD;
 import java.util.ArrayList;
 import java.util.Iterator;
+import robots.good_robot;
 
 /**
  *
@@ -20,6 +21,7 @@ public final class Interpretator {
      */
     Parser parser;
     Boolean debugMode = false;
+    good_robot currRobot;
     ArrayList<CMD> cmdList;
     Iterator<CMD> iterator = cmdList.iterator();
 
@@ -27,6 +29,12 @@ public final class Interpretator {
         return iterator.next().Run();
     }
 
+    public void translate(String url, good_robot robot) {
+        currRobot=robot;
+        parser = new Parser(url,currRobot);
+        cmdList = parser.getList();
+        iterator = cmdList.iterator();
+    }
     void run() {
         if (debugMode) {
             //NTD
@@ -39,10 +47,10 @@ public final class Interpretator {
 
     public Interpretator()
     {
-        parser=new Parser("cmd.txt");
-        cmdList=parser.getList();
-        iterator= cmdList.iterator();
-        run();
+//        parser=new Parser("cmd.txt");
+//        cmdList=parser.getList();
+//        iterator= cmdList.iterator();
+//        run();
     }
 
 }

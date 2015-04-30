@@ -20,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import robots.good_robot;
 
 /**
  *
@@ -30,12 +31,14 @@ public final class Parser {
     Coordinate c=new Coordinate(2,3);
     Direction d;
     private static Logger log = Logger.getLogger(Parser.class.getName());
+    good_robot currRobot;
 
     ArrayList<String> alphabet = new ArrayList();
     ArrayList<String> readedText = new ArrayList();
     ArrayList<CMD> cmdList = new ArrayList();
 
-    public Parser(String Url) {
+    public Parser(String Url, good_robot robot) {
+        currRobot=robot;
         this.d = Direction.UP;
         alphabet.add("Step");
         alphabet.add("Rotate");
