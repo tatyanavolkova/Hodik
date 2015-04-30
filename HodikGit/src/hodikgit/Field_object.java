@@ -17,7 +17,7 @@ public abstract class Field_object {
     /*
     aргументы:
     good_robot(поле, интегратор, интерпретатор, координата, 100, robot), где 100 - xp, robot - объект класса Unit
-    bad_robot(поле, интегратор, интерпретатор, координата, 10, 5), где 10 - xp, 1 - тип поведения, 5 - урон
+    bad_robot(поле, интегратор, интерпретатор, координата, 10, 5, "act_type"), где 10 - xp, 1 - тип поведения, 5 - урон
     */
     
     
@@ -26,7 +26,11 @@ public abstract class Field_object {
         interp=in;
         field=a;
         integr=i;
-        c=coord;
+        if (!a.isFilled(coord))
+            c=coord;
+        else
+            System.out.print("WARNING!!! THE CELL IS ALREADY TAKEN");
+            //get another cell
     };
     
     public void show_info()

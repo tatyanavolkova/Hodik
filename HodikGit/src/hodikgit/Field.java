@@ -27,6 +27,12 @@ public class Field
     public int width;
     public int height;
     
+    public boolean isFilled(Coordinate coord)
+    {
+        //check, if is filled - true;
+        return false;
+    }
+    
     class Cell extends HashMap<Coordinate,Cell>
     {
         	Cell get(int x, int y) 

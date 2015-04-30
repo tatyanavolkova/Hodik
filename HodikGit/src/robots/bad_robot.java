@@ -17,12 +17,14 @@ import hodikgit.Interpretator;
  */
 public class bad_robot extends Field_object{
     int xp;
+    String act_type;
     int damage;
-    bad_robot(Field f, Integrator i, Interpretator in, Coordinate coord, int x, int d)
+    bad_robot(Field f, Integrator i, Interpretator in, Coordinate coord, int x, int d, String type)
     {
         super(f, i, in, coord);
         xp=x;
         damage=d;
+        act_type=type;
     }
     
     @Override

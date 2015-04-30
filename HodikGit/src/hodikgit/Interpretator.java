@@ -4,6 +4,7 @@
  */
 package hodikgit;
 
+import hodikgit.Coordinate;
 import java.io.File;
 
 /**
@@ -24,7 +25,7 @@ public class Interpretator {
         
     }
     
-    public boolean Run (int i){
+    /*public boolean Run (int i){
           if (rl.vals[i].equals("Step")) {this.Step(); System.out.println("Step");};
           if (rl.vals[i].equals("Rotate")) {this.Rotate();System.out.println("Rotate");};
           if (rl.vals[i].equals("End")) return true;
@@ -41,7 +42,7 @@ public class Interpretator {
     
     public void Rotate(){
         this.c.p=(this.c.p+1)%4;        
-    }
+    }*/
    
    
 }

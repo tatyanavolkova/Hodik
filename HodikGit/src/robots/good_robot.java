@@ -6,6 +6,7 @@
 package robots;
 
 import hodikgit.Coordinate;
+import hodikgit.Direction;
 import hodikgit.Field;
 import hodikgit.Field_object;
 import hodikgit.Integrator;
@@ -16,13 +17,15 @@ import hodikgit.Interpretator;
  * @author jbenua
  */
 public class good_robot extends Field_object{
-    int xp;
+    public int xp;
     Unit robot;
+    Direction dir;
     
-    good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int x, Unit r)
+    good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int x, Direction d, Unit r)
     {
         super(a, i, in, coord);
         xp=x;
+        dir=d;
         r.robots.add(this);
         robot=r;
     }

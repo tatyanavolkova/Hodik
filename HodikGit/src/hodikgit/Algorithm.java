@@ -12,6 +12,7 @@ package hodikgit;
 public class Algorithm {
     String name;
     String path;
+    int state=0; // 0 - empty, 1 - file path, 2 - translated algorithm
     public Algorithm(String p)
     {
         path=p;
