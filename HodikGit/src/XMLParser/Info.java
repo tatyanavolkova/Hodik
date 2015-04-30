@@ -19,6 +19,7 @@ public class Info
     int levelNumber;
     int x;
     int y;  
+    int HP;
     List<mobInfo> mob = new ArrayList();
     
 }

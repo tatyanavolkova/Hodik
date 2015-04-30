@@ -6,6 +6,8 @@
 package XMLParser;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,9 +23,12 @@ import org.xml.sax.SAXException;
  */
 public class loadLevel 
 {
-    int mode=1;
-    Info info;
+    Info info = new Info();
+    List<Info> InfoList = new ArrayList();
+    mobInfo mInfo = new mobInfo();
     int k=0;
+    int t=0;
+    boolean ind=true;
     public void getDocument() throws Exception 
     {
         try 
@@ -58,9 +63,12 @@ public class loadLevel
             System.out.println("Level number: " + el.getAttribute("number") + "\n");
             info.levelNumber=Integer.valueOf(el.getAttribute("number"));
             addRobot(level);
-            System.out.println("Robot added");
+            System.out.println("Robot added" + "\n");
             addMobs(level);
-            System.out.println("Mobs added");
+            System.out.println("Mobs added" + "\n");
+            System.out.println("Level added" + "\n");
+            InfoList.add(t,info);
+            t++;
         } 
     }
     
@@ -76,10 +84,10 @@ public class loadLevel
         Element el = (Element) robot;
         System.out.println("Robot's name: " + el.getAttribute("name"));
         info.robotName=el.getAttribute("name");
-        addCoordinates(robot,0);
+        addCoordinates(robot);
     }
     
-    private void addCoordinates(Node character, int k)
+    private void addCoordinates(Node character)
     {
         Node coordinates=character.getFirstChild();
         do
@@ -90,17 +98,41 @@ public class loadLevel
 
         Element el = (Element) coordinates;
         System.out.println("Coordinate x: " + el.getAttribute("x"));
-        System.out.println("Coordinate y: " + el.getAttribute("y") + "\n");
+        System.out.println("Coordinate y: " + el.getAttribute("y"));
         if("robot".equals(character.getNodeName()))
         {
             info.x=Integer.valueOf(el.getAttribute("x"));
             info.y=Integer.valueOf(el.getAttribute("y"));
+            ind=true;
+            
         }
         else
         {
-            info.mob.get(k).x=Integer.valueOf(el.getAttribute("x"));
-            info.mob.get(k).y=Integer.valueOf(el.getAttribute("y"));
+            mInfo.x=Integer.valueOf(el.getAttribute("x"));
+            mInfo.y=Integer.valueOf(el.getAttribute("y"));
+            ind=false;
         }
+        addHP(character, ind);
+    }
+   
+    private void addHP(Node character, boolean ind)
+    {
+        Node hp=character.getFirstChild();
+        hp=hp.getNextSibling();
+        do
+        {
+            hp=hp.getNextSibling();
+        } 
+        while(hp.getNodeType()!=Node.ELEMENT_NODE);
+
+        Element el = (Element) hp;
+        System.out.println("HP: " + el.getAttribute("life")); 
+        if(ind==true)
+        {
+            info.HP=Integer.valueOf(el.getAttribute("life"));
+        }
+        else
+            mInfo.hp=Integer.valueOf(el.getAttribute("life")); 
     }
     
     private void addMobs(Node level)
@@ -114,22 +146,22 @@ public class loadLevel
                 {
                     Element el = (Element) mobs.item(i);   
                     System.out.println("Mob's type: " + el.getAttribute("type"));
-                    info.mob.get(k).type="mob";
-                    info.mob.get(k).name=el.getAttribute("type");
-                    addCoordinates(mobs.item(i), k);
+                    mInfo.type="mob";
+                    mInfo.name=el.getAttribute("type");
+                    addCoordinates(mobs.item(i));
                     System.out.println("Mob added" + "\n");
-                    k++;
                 }
                 if("obstacle".equals(mobs.item(i).getNodeName()))
                 {
                     Element el = (Element) mobs.item(i);   
                     System.out.println("Obstacle's type: " + el.getAttribute("type"));
-                    info.mob.get(k).type="obstacle";
-                    info.mob.get(k).name=el.getAttribute("type");
-                    addCoordinates(mobs.item(i), k);
+                    mInfo.type="obstacle";
+                    mInfo.name=el.getAttribute("type");
+                    addCoordinates(mobs.item(i));
                     System.out.println("Obstacle added" + "\n");
-                    k++;
                 }
+                info.mob.add(k, mInfo);
+                k++;
                 
             }
         }

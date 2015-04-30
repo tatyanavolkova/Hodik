@@ -11,8 +11,15 @@ package XMLParser;
  */
 public class mobInfo 
 {
-    String name;
-    String type;
+    String name;            
+    String type;            //type: bad robot or obstacle
     int x;
     int y;
+    int hp;
+
+    public mobInfo() 
+    {      
+        this.name = new String();
+        this.type = new String();
+    }
 }
