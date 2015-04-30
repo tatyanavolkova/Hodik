@@ -34,16 +34,11 @@ public abstract class Field_object {
         interp=in;
         field=a;
         integr=i;
-        if (!a.isFilled(coord))
-            c=coord;
-        else
-            System.out.print("WARNING!!! THE CELL IS ALREADY TAKEN");
-            //get another cell
+        c=coord;
     };
     
     public void show_info()
     {
-        System.out.println("Hey! I'm on the field "+ field);
-        System.out.println("Coords: " + c);
+        System.out.println("Hey! I'm on the field! Coords: " + c);
     }
 }
