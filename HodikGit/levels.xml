@@ -22,11 +22,11 @@ and open the template in the editor.
 		</mob>
 		<obstacle type="1">
 			<coordinates x="4" y="7"></coordinates>
-			<hp></hp>
-		</obstacle
+			<hp life="100"></hp>
+		</obstacle>
 		<obstacle type="2">
 			<coordinates x="8" y="1"></coordinates>
-			<hp></hp>
+			<hp life="100"></hp>
 		</obstacle>
 	</level>
 	<level number="2">	
@@ -44,11 +44,11 @@ and open the template in the editor.
 		</mob>
 		<obstacle type="3">
 			<coordinates x="2" y="8"></coordinates>
-			<hp></hp>
-		</obstacle
+			<hp life="100"></hp>
+		</obstacle>
 		<obstacle type="4">
 			<coordinates x="6" y="4"></coordinates>
-			<hp></hp>
+			<hp life="100"></hp>
 		</obstacle>
 	</level>
 </game>
