@@ -7,6 +7,9 @@
 package hodikgit;
 import java.util.*;
 import javax.swing.*;
+import java.util.Vector;
+import robots.Unit;
+import robots.bad_robot;
 /**
  *
  * @author Оля
@@ -16,13 +19,22 @@ public class Integrator {
     //JFrame myfr; 
     //JFrame logfr;
     //java.util.Timer timer;
-    Field field;
+    Vector<Field> fields; //коллекция полей
+    Vector<Unit> units; //коллекция роботов
     JFrame frm;
+    Field field;
     
     Integrator(){
 
+       fields = new Vector<Field>();
+       units = new Vector<Unit>();
+       
+       //считать роботов и поместить в вектор units
+       //считать поле и поместить в вектор fields
+       
+       
         
-       field = new Field(10,10);
+       Field field = new Field(10,10);
        rMap = new HashMap<String, Robot>();
        rMap.put("nasa",new Robot("nasa", 33));
        rMap.put("saturn",new Robot("saturn", 66));
