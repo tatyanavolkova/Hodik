@@ -11,15 +11,15 @@ import java.util.HashMap;
  *
  * @author r545-6
  */
-class Cell extends HashMap<Coordinate,Field_object>
+class Cells extends HashMap<Coordinate,Field_object>
 {
         Field_object get(int x ,int y)
         {
             Coordinate pos = new Coordinate(x ,y);
             return this.get(pos);
         }
-    public Cell newcell=new Cell();
-    public Field_object[] getallCell()
+    public Cells newcell=new Cells();
+    public Field_object[] getallCells()
     {
         return this.newcell.values().toArray(new Field_object[0]);
     }
