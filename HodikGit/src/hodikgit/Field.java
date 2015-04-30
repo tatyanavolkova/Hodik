@@ -19,9 +19,7 @@ import java.util.HashMap;
 public class Field
 {
     int level=0;
-    Coordinate start;   //wtf?
     HashMap<Coordinate, Field_object> hex = new HashMap<>();
-    Coordinate myField; //wtf?
     public int width;
     public int height;
 
