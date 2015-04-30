@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.util.Vector;
 import robots.Unit;
 import robots.bad_robot;
+import XMLParser.*;
 /**
  *
  * @author Оля
@@ -21,16 +22,20 @@ public class Integrator {
     //java.util.Timer timer;
     Vector<Field> fields; //коллекция полей
     Vector<Unit> units; //коллекция роботов
-    JFrame frm;
-    Field field;
+    loadLevel load;
+    String levelname;
     
-    Integrator(){
+    
+    
+    Integrator() throws Exception{
 
        fields = new Vector<Field>();
        units = new Vector<Unit>();
+       load = new loadLevel();
        
        if (true) //выбрать имеющегося робота
        {
+                load.getDocument(levelname);
            //загрузить поле, поместить в вектор fields
            //загрузить робота, поместить в вектор units
        } else 

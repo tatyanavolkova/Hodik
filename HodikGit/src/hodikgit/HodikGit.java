@@ -15,7 +15,7 @@ public class HodikGit {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            Integrator i = new Integrator();
+            //Integrator i = new Integrator();
            
     }
 }
