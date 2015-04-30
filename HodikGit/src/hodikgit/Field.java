@@ -18,53 +18,29 @@ import java.util.HashMap;
  */
 public class Field
 {
-/*    int coordX = 0;
-    int coordY = 0;
-    Coordinate start;
-    HashMap<Coordinate,Cell> hex = new HashMap<>();
-    Coordinate myField;
-  */  
+    int level=0;
+    HashMap<Coordinate, Field_object> hex = new HashMap<>();
     public int width;
     public int height;
-    
+
     public boolean isFilled(Coordinate coord)
     {
-        //check, if is filled - true;
-        return false;
+        return hex.get(coord)==null;
     }
-    
-    class Cell extends HashMap<Coordinate,Cell>
-    {
-        	Cell get(int x, int y) 
-		{
-			Coordinate pos = new Coordinate(x, y);
-			return this.get(pos);
-		}
 
-		void set(Cell cell) 
-                {
-			this.put(cell.getCoordinate(), cell); //ill think it over and do it later
-		}
-}
-    public Cell cells = new Cell();
-    
-    public Cell[] getallCell()
-	{
-            return this.cells.values().toArray(new Cell[0]);
-        }
-    public void setCell(Cell cell)
-    {
-        this.cells.set(cell);
-    }
-    public Cell getCell(int x ,int y)
-    {
-        return this.cells.get(x , y);
-    }
     public Field(int width, int height) 
     {
 		this.width = width;
 		this.height = height;
     }
+    public Field(int l, int width, int height) 
+    {
+        level=l;
+		this.width = width;
+		this.height = height;
+    }   
+   
+
  
     public int getWidth()
     {

@@ -9,7 +9,7 @@ import hodikgit.Coordinate;
 import hodikgit.Field;
 import hodikgit.Field_object;
 import hodikgit.Integrator;
-import hodikgit.Interpretator;
+import interpretator.Interpretator;
 
 /**
  *

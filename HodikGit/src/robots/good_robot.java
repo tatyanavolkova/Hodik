@@ -10,7 +10,7 @@ import hodikgit.Direction;
 import hodikgit.Field;
 import hodikgit.Field_object;
 import hodikgit.Integrator;
-import hodikgit.Interpretator;
+import interpretator.Interpretator;
 
 /**
  *
@@ -19,14 +19,13 @@ import hodikgit.Interpretator;
 public class good_robot extends Field_object{
     public int xp;
     Unit robot;
-    Direction dir;
+    public Direction dir;
     
     good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int x, Direction d, Unit r)
     {
         super(a, i, in, coord);
         xp=x;
         dir=d;
-        r.robots.add(this);
         robot=r;
     }
 

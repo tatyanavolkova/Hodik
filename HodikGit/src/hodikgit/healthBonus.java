@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hodikgit;
+import interpretator.Interpretator;
 import robots.Unit;
 import robots.good_robot;
 
@@ -32,5 +33,23 @@ public class healthBonus extends Field_object {
     {
         super.show_info();
         System.out.println("Health bonus: +" + this.hp +" hp");
+    }
+}
+
+class smallHealth extends healthBonus{
+    public smallHealth (Field a, Integrator i, Interpretator in, Coordinate coord){
+        super (a,i,in,coord,5);
+    }
+}
+
+class mediumHealth extends healthBonus{
+    public mediumHealth (Field a, Integrator i, Interpretator in, Coordinate coord){
+        super (a,i,in,coord,15);
+    }
+}
+
+class largeHealth extends healthBonus{
+    public largeHealth (Field a, Integrator i, Interpretator in, Coordinate coord){
+        super (a,i,in,coord,25);
     }
 }

@@ -10,7 +10,7 @@ import hodikgit.Coordinate;
 import hodikgit.Direction;
 import hodikgit.Field;
 import hodikgit.Integrator;
-import hodikgit.Interpretator;
+import interpretator.Interpretator;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,14 +33,13 @@ public class Unit {
     
     void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, Direction d,  int xp){
         good_robot r=new good_robot(a, i, in, coord, xp, d, this);
+        robots.add(r);
     }
     
     boolean check_if_prog_exists(String path)
     {
         File f = new File(path);
-        if(f.exists() && !f.isDirectory())
-            return true;
-        else return false;
+        return f.exists() && !f.isDirectory();
     }
     
     boolean add_prog(String p)
@@ -66,11 +65,21 @@ public class Unit {
         else 
             return false;
     }    
-    void launch_prog(String n)
+    void launch_prog(String n, int rob)
     {
         System.out.println("Launching program '"+ n+"'...");
-        // some_function(progs.get(n);
+        Algorithm alg=progs.get(n);
+        good_robot cur=robots.get(rob);
+        Interpretator in=cur.getInterpr();
+        if (alg.getState()==0)
+        {
+            System.out.println("NO FILE");
+            //raise error;
+        }
+        else
+            in.translate(n, cur);
     }
+    
     void del_prog(String n)
     {
         progs.remove(n);

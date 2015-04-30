@@ -28,17 +28,19 @@ public class Coordinate
     public int getY()
     {return y;}
     
-    public int setX(int newx)
+    public void setX(int newx)
     {
         this.x = newx;
-        return x;
     }
-    public int setY(int newy)
+    public void setY(int newy)
     {
         this.y = newy;
-        return y;
     }
-
+    @Override
+    public String toString()
+    {
+        return "("+x+"; "+y+")";
+    }
 
 @Override
 public int hashCode() 

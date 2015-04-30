@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package hodikgit;
-
+import interpretator.Interpretator;
 /**
  *
  * @author jbenua
@@ -19,23 +19,26 @@ public abstract class Field_object {
     good_robot(поле, интегратор, интерпретатор, координата, 100, robot), где 100 - xp, robot - объект класса Unit
     bad_robot(поле, интегратор, интерпретатор, координата, 10, 5, "act_type"), где 10 - xp, 1 - тип поведения, 5 - урон
     */
+    public Coordinate getCoord()
+    {
+        return c;
+    }
     
+    public Interpretator getInterpr()
+    {
+        return interp;
+    }
     
     public Field_object(Field a, Integrator i, Interpretator in, Coordinate coord)
     {
         interp=in;
         field=a;
         integr=i;
-        if (!a.isFilled(coord))
-            c=coord;
-        else
-            System.out.print("WARNING!!! THE CELL IS ALREADY TAKEN");
-            //get another cell
+        c=coord;
     };
     
     public void show_info()
     {
-        System.out.println("Hey! I'm on the field "+ field);
-        System.out.println("Coords: " + c);
+        System.out.println("Hey! I'm on the field! Coords: " + c);
     }
 }
