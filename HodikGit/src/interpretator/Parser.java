@@ -32,7 +32,6 @@ public final class Parser {
     Direction d;
     private static Logger log = Logger.getLogger(Parser.class.getName());
     good_robot currRobot;
-
     ArrayList<String> alphabet = new ArrayList();
     ArrayList<String> readedText = new ArrayList();
     ArrayList<CMD> cmdList = new ArrayList();
@@ -108,32 +107,32 @@ public final class Parser {
             CMD result = null;
             if (alphabet.contains(buffer.get(i))) {
                 if (buffer.get(i).equals("Step")) {
-                result = new Step(c,d);
+                result = new Step(currRobot);
                     cmdList.add(result);
                     continue;
                 }
                 if (buffer.get(i).equals("Rotate")) {
                     String tag = buffer.get(i + 1);
                     if (tag.toLowerCase().equals("left")) {
-                        result = new Rotate("left",d);
+                        result = new Rotate("left",currRobot);
                         cmdList.add(result);
                         i++;
                         continue;
                     }
                     if (tag.toLowerCase().equals("right")) {
-                         result = new Rotate("right",d);
+                         result = new Rotate("right",currRobot);
                         cmdList.add(result);
                         i++;
                         continue;
                     }
                     if (tag.toLowerCase().equals("forward")) {
-                         result = new Rotate("up",d);
+                         result = new Rotate("up",currRobot);
                         cmdList.add(result);
                         i++;
                         continue;
                     }
                     if (tag.toLowerCase().equals("back")) {
-                         result = new Rotate("down",d);
+                         result = new Rotate("down",currRobot);
                         cmdList.add(result);
                         i++;
                     }

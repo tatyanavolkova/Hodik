@@ -6,6 +6,7 @@
 package interpretator.cmd;
 
 import hodikgit.Direction;
+import robots.good_robot;
 
 /**
  *
@@ -13,11 +14,12 @@ import hodikgit.Direction;
  */
 public class Rotate implements CMD 
 {
-    Direction dir= null;
     String direction;
-    public Rotate(String d, Direction DIR)
+    good_robot currRobot;
+    
+    public Rotate(String d, good_robot robot)
     {
-        dir=DIR;
+        currRobot=robot;
         direction=d;
     }
     @Override
@@ -34,19 +36,19 @@ public class Rotate implements CMD
     {
         switch(direction){
             case "up":
-                dir=Direction.UP;
+                currRobot.dir=Direction.UP;
                 break;
             case "left":
-                dir=Direction.LEFT;
+                currRobot.dir=Direction.LEFT;
                 break;
             case "right":
-                dir=Direction.RIGHT;
+                currRobot.dir=Direction.RIGHT;
                 break;
             case "down":
-                dir=Direction.DOWN; 
+                currRobot.dir=Direction.DOWN; 
                 break;
         }
-        return "newOrientation "+dir.name();
+        return "newOrientation "+currRobot.dir.name();
     }
 }
    

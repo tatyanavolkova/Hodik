@@ -7,6 +7,7 @@ package interpretator.cmd;
 
 import hodikgit.Coordinate;
 import hodikgit.Direction;
+import robots.good_robot;
 
 /**
  *
@@ -16,11 +17,11 @@ public class Step implements CMD {
 
     Coordinate c = null;
     Direction dir;
+    good_robot currRobot;
     int num;
 
-    public Step(Coordinate C, Direction DIR) {
-        c = C;
-        dir = DIR;
+    public Step(good_robot robot) {
+        currRobot=robot;
     }
     
 //    public Step(Coordinate C, Direction DIR,int n)
@@ -41,8 +42,8 @@ public class Step implements CMD {
     }
 
     public String Step() {
-        int X = c.x + dir.deltaX();
-        int Y = c.y + dir.deltaY();
+        int X = currRobot.getCoord().x + dir.deltaX();
+        int Y = currRobot.getCoord().y + dir.deltaY();
         return "stepTo " + X + " " + Y + " " + dir.name();
     }
 
