@@ -42,8 +42,8 @@ public class Step implements CMD {
     }
 
     public String Step() {
-        int X = currRobot.getCoord().x + dir.deltaX();
-        int Y = currRobot.getCoord().y + dir.deltaY();
+        int X = currRobot.getCoord().getX() + dir.deltaX();
+        int Y = currRobot.getCoord().getY() + dir.deltaY();
         return "stepTo " + X + " " + Y + " " + dir.name();
     }
 

@@ -41,11 +41,6 @@ public abstract class Field_object {
     {
         return interp;
     }
-
-    public Field getField() {
-        return field;
-    }
-
     public Field_object(Field a, Integrator i, Interpretator in, Coordinate coord)
     {
         interp=in;
