@@ -18,18 +18,15 @@ import java.util.HashMap;
  */
 public class Field
 {
-    
     Coordinate start;
-    HashMap<Coordinate,Field_object> hex = new HashMap<>();
+    HashMap<Coordinate, Field_object> hex = new HashMap<>();
     Coordinate myField;
-   
     public int width;
     public int height;
 
     public boolean isFilled(Coordinate coord)
     {
-        //check, if is filled - true;
-        return false;
+        return hex.get(coord)==null;
     }
 
     public Field(int width, int height) 
