@@ -50,4 +50,9 @@ public class bad_robot extends Field_object{
     public String getType() {
         return "mob";
     }
+//    toXML(ArrayList<>)
+//    {
+//        хз вообще что, но для Кати:)
+//        act_type, damage, coord
+//    }
 }
