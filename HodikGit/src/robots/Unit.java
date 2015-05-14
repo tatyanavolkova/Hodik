@@ -80,13 +80,7 @@ public class Unit {
         Algorithm alg=progs.get(n);
         good_robot cur=robots.get(rob);
         Interpretator in=cur.getInterpr();
-        if (alg.getState()==0)
-        {
-            System.out.println("NO FILE");
-            //raise error;
-        }
-        else
-            in.translate(n, cur);
+        in.translate(alg.getPath(), cur);
     }  
     void del_prog(String n)
     {
