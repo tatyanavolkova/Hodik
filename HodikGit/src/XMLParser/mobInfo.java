@@ -20,7 +20,6 @@ public class mobInfo
     int hp;
 
     public mobInfo(String name, String type, int x, int y, int hp) 
-    public mobInfo() 
     {      
         this.name = name;
         this.type = type;
@@ -31,11 +30,6 @@ public class mobInfo
     
     public mobInfo(){}
 
-    public void setCoords(Coordinate c) 
-    {      
-        x=c.getX();
-        y=c.getY();
-    }
     public void setCoords(Coordinate c) 
     {      
         x=c.getX();
