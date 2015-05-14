@@ -18,7 +18,7 @@ import interpretator.Interpretator;
 public class bad_robot extends Field_object{
     String act_type;
     int damage=0;
-    bad_robot(Field f, Integrator i, Interpretator in, Coordinate coord, String type)
+    public bad_robot(Field f, Integrator i, Interpretator in, Coordinate coord, String type)
     {
         super(f, i, in, coord);
         act_type=type;
