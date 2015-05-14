@@ -27,69 +27,69 @@ public class Interpretator {
     Iterator<CMD> iterator = cmdList.iterator();
     private static final Logger log = Logger.getLogger(Interpretator.class.getName());
 
-    HashMap<good_robot,ArrayList<Program>> test;
-    
+    HashMap<good_robot, ArrayList<Program>> test;
+
     String runNextCMD() {
         return iterator.next().Run();
     }
 
-    public boolean debugMode(){
+    public boolean debugMode() {
         return debugMode;
     }
-    
+
     public void translate(String name, String url, good_robot robot) {
-        if(test.get(robot)!=null){
+        if (test.get(robot) != null) {
             parser = new Parser(url, robot);
             ArrayList<CMD> list = parser.getList();
-            test.get(robot).add(new Program(name,list));
-        }
-        else{
+            test.get(robot).add(new Program(name, list));
+        } else {
             parser = new Parser(url, robot);
             ArrayList<CMD> list = parser.getList();
-            ArrayList<Program> buf=new ArrayList<>();
-            buf.add(new Program(name,list));
+            ArrayList<Program> buf = new ArrayList<>();
+            buf.add(new Program(name, list));
             test.put(robot, buf);
         }
     }
-    
+
     public void translate(String url, good_robot robot) {
-        currRobot=robot;
-        parser = new Parser(url,currRobot);
+        currRobot = robot;
+        parser = new Parser(url, currRobot);
         cmdList = parser.getList();
         iterator = cmdList.iterator();
     }
+
     void checkResult(String result) {
         String[] parts = result.split(" ");
         if (parts[0].equals("stepTo")) {
             Coordinate newC = new Coordinate(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
- //           if (currRobot.getField().isFilled(newC) != true) {
-//                currRobot.setCoords(newC);
-  //          } else {
-   //             log.log(Level.SEVERE, "this coordinates are filled with FieldObject", result);
-  //          }
+            if (currRobot.getField().isFilled(newC) != true) {
+                currRobot.setCoords(newC);
+            } else {
+                log.log(Level.SEVERE, "this coordinates are filled with FieldObject", result);
+            }
 
         }
         System.out.println(result);
         log.log(Level.FINE, result);
     }
+
     void Run() {
         if (debugMode) {
             //NTD
         } else {
             while (iterator.hasNext()) {
-                String result=runNextCMD();
+                String result = runNextCMD();
                 checkResult(result);
                 System.out.println(result);
             }
         }
     }
 
-    public Interpretator()
-    {
+    public Interpretator() {
 //        parser=new Parser("cmd.txt");
 //        cmdList=parser.getList();
 //        iterator= cmdList.iterator();
 //        run();
     }
-    
+
 }

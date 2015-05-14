@@ -31,6 +31,21 @@ public class Obstacles extends Field_object {
     {
         super.show_info();
     }
+
+    @Override
+    public String getType() {
+        return "obstacle";
+    }
+
+    @Override
+    public String getActtype() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDamage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 
 //extensions for Obstacle class
