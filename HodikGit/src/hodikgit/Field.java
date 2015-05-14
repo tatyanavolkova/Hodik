@@ -4,13 +4,6 @@
  * and open the template in the editor.
  */
 package hodikgit;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Timer;
 import java.util.HashMap;
 /**
  *
@@ -26,6 +19,17 @@ public class Field
     public boolean isFilled(Coordinate coord)
     {
         return hex.get(coord)==null;
+    }
+    public boolean endofField(Coordinate c)
+    {  
+      if(c.getX()==width || c.getY()==height) 
+      {
+        return false;  
+      }
+      else
+      {
+       return true;    
+      }
     }
     public HashMap<Coordinate, Field_object> getHex()
     {
