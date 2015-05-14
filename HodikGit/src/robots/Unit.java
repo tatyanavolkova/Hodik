@@ -42,7 +42,7 @@ public class Unit {
         return null;
     }
     
-    void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, Direction d,  int hp){
+    public void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, Direction d,  int hp){
         good_robot r=new good_robot(a, i, in, coord, hp, d, this);
         robots.add(r);
     }
