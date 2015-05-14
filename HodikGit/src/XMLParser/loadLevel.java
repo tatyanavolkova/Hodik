@@ -21,7 +21,7 @@ import org.xml.sax.SAXException;
  */
 public class loadLevel 
 {
-    Info info = new Info();
+    public Info info = new Info();
     mobInfo mInfo = new mobInfo();
     int k=0;
     int t=0;
@@ -158,6 +158,11 @@ public class loadLevel
                 
             }
         }
+    }
+    
+    public Info getInfo()
+    {
+        return info;
     }
               
 }

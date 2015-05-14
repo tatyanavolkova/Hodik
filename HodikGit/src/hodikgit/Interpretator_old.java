@@ -11,15 +11,15 @@ import java.io.File;
  *
  * @author user
  */
-public class Interpretator {
+public class Interpretator_old {
     Coordinate c;
     Lang rl;
 
-    public Interpretator(){
+    public Interpretator_old(){
         c = new Coordinate();
         rl = new Lang();
     }
-    public Interpretator (Coordinate C){
+    public Interpretator_old (Coordinate C){
         this.c=C;
         rl = new Lang();
         

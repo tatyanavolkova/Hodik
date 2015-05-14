@@ -11,6 +11,9 @@ import java.util.Vector;
 import robots.Unit;
 import robots.bad_robot;
 import XMLParser.*;
+import interpretator.*;
+
+
 /**
  *
  * @author Оля
@@ -24,6 +27,7 @@ public class Integrator {
     Vector<Unit> units; //коллекция роботов
     loadLevel load;
     String levelname;
+    Interpretator interp;
     
     
     
@@ -35,7 +39,23 @@ public class Integrator {
        
        if (true) //выбрать имеющегося робота
        {
+           Scanner sc = new Scanner(System.in);
+           levelname = sc.nextLine();
+           int height=10;
+           int width=10;
+           Info i = new Info();
+           i=load.getInfo();
+           int level=i.levelNumber;
+           int x=i.getX();
+           int y=i.getY();
+           int hp=i.getHP();
+           Coordinate c=new Coordinate(x, y);
+           Direction d=Direction.UP;
+                
                 load.getDocument(levelname);
+              
+           Field F=new Field(level, width, height);     
+           units.elementAt(0).add_robot(F, this, interp, c, d, hp);
            //загрузить поле, поместить в вектор fields
            //загрузить робота, поместить в вектор units
        } else 

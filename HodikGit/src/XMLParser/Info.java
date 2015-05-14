@@ -16,10 +16,30 @@ import java.util.List;
 public class Info 
 {
     String robotName;
-    int levelNumber;
-    int x;
-    int y;  
-    int HP;
+    public int levelNumber;
+    public int x;
+    public int y;  
+    public int HP;
     List<mobInfo> mob = new ArrayList();
+    
+    public int getLevel()
+    {
+        return levelNumber;
+    }
+    
+    public int getX()
+    {
+        return x;
+    }
+    
+    public int getY()
+    {
+        return y;
+    }
+    
+    public int getHP()
+    {
+        return HP;
+    }
     
 }

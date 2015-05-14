@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Robot {
     String rb_name;
     int FreqVal;
-    Interpretator curr;
+    Interpretator_old curr;
     ArrayList<File> languages;
     
     
@@ -23,7 +23,7 @@ public class Robot {
         this.rb_name = name;
         this.FreqVal = val;
         languages=new <File>ArrayList();
-        curr = new Interpretator();
+        curr = new Interpretator_old();
     }
     /*
     void rb_show_info (){
