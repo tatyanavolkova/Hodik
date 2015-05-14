@@ -32,7 +32,7 @@ public class Unit {
         robots=new ArrayList();
         progs=new HashMap<>();
     }
-    good_robot getAvatar(Field a)
+    public good_robot getAvatar(Field a)
     {
         for (good_robot i : robots)
         {
@@ -51,7 +51,7 @@ public class Unit {
         File f = new File(path);
         return f.exists() && !f.isDirectory();
     }
-    boolean add_prog(String p)
+    public boolean add_prog(String p)
     {
         if (check_if_prog_exists(p))
         {
@@ -62,7 +62,7 @@ public class Unit {
         else 
             return false;
     }
-    boolean add_prog(String n, String p)
+    public boolean add_prog(String n, String p)
     {
         if (check_if_prog_exists(p))
         {
@@ -74,7 +74,7 @@ public class Unit {
         else 
             return false;
     }    
-    void launch_prog(String n, int rob)
+    public void launch_prog(String n, int rob)
     {
         System.out.println("Launching program '"+ n+"'...");
         Algorithm alg=progs.get(n);
@@ -82,7 +82,7 @@ public class Unit {
         Interpretator in=cur.getInterpr();
         in.translate(alg.getPath(), cur);
     }  
-    void del_prog(String n)
+    public void del_prog(String n)
     {
         progs.remove(n);
         System.out.println("Program '"+n+"' deleted");
