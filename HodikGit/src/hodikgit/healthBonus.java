@@ -25,7 +25,7 @@ public class healthBonus extends Field_object {
     
     public void healRobot (good_robot gr)
     {
-        gr.xp+=hp;
+        gr.HP+=hp;
     }
     
     @Override
