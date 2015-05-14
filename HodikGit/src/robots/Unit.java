@@ -16,7 +16,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  *
@@ -33,9 +32,9 @@ public class Unit {
         robots=new ArrayList();
         progs=new HashMap<>();
     }
-    public Set<String> getProgs()
+    public ArrayList<String> getProgs()
     {
-        return progs.keySet();
+        return new ArrayList(progs.keySet());
     }
     
     public good_robot getAvatar(Field a)
