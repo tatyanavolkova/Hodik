@@ -45,6 +45,8 @@ public class Integrator {
            int width=10;
            Info i = new Info();
            i=load.getInfo();
+           List<mobInfo> mob = new ArrayList();
+           mob=i.getMobs();
            int level=i.levelNumber;
            int x=i.getX();
            int y=i.getY();
@@ -56,6 +58,11 @@ public class Integrator {
               
            Field F=new Field(level, width, height);     
            units.elementAt(0).add_robot(F, this, interp, c, d, hp);
+           for (mobInfo m: mob)
+           {
+               
+           }
+           
            //загрузить поле, поместить в вектор fields
            //загрузить робота, поместить в вектор units
        } else 

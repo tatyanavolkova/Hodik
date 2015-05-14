@@ -20,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import robots.good_robot;
 
 /**
@@ -138,7 +139,9 @@ public class Parser {
 //                    }
                 }
             } else {
-                log.log(Level.SEVERE, "no such command:", buffer.get(i));
+                log.log(Level.SEVERE, i+"no such command:", buffer.get(i));
+                JOptionPane.showMessageDialog(null, "no such command: "+buffer.get(i));
+                break;
             }
         }
     }

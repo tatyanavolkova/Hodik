@@ -56,6 +56,11 @@ public class Info
         return HP;
     }
     
+    public List<mobInfo> getMobs()
+    {
+        return mob;
+    }
+    
     public void loadMobs(Field a)
     {
         HashMap<Coordinate, Field_object> objects=a.getHex();

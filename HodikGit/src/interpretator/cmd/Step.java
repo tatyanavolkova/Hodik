@@ -15,13 +15,14 @@ import robots.good_robot;
  */
 public class Step implements CMD {
 
-    Coordinate c = null;
+    //    Coordinate c = null;
     Direction dir;
     good_robot currRobot;
     int num;
 
     public Step(good_robot robot) {
         currRobot=robot;
+        dir=currRobot.dir;
     }
     
 //    public Step(Coordinate C, Direction DIR,int n)
@@ -42,8 +43,8 @@ public class Step implements CMD {
     }
 
     public String Step() {
-        int X = currRobot.getCoord().getX() + dir.deltaX();
-        int Y = currRobot.getCoord().getY() + dir.deltaY();
+        int X = currRobot.getCoord().getX() + currRobot.dir.deltaX();
+        int Y = currRobot.getCoord().getY() + currRobot.dir.deltaY();
         return "stepTo " + X + " " + Y + " " + dir.name();
     }
 
