@@ -24,13 +24,13 @@ public class Field
     }
     public boolean endofField(Coordinate c)
     {  
-      if(c.getX()==width || c.getY()==height) 
+      if(c.getX()>=width || c.getY()>=height) 
       {
-        return false;  
+        return true;  
       }
       else
       {
-       return true;    
+       return false;    
       }
     }
     public HashMap<Coordinate, Field_object> getHex()

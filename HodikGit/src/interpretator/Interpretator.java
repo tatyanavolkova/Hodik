@@ -47,7 +47,12 @@ public class Interpretator {
         if (parts[0].equals("stepTo")) {
             Coordinate newC = new Coordinate(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
             if (currRobot.getField().isFilled(newC) != true) {
-                currRobot.setCoords(newC);
+                if(currRobot.getField().endofField(newC) != true){
+                    currRobot.setCoords(newC);
+                }
+                else{
+                    log.log(Level.SEVERE, "this coordinates are out of FIELD", result);
+                }
             } else {
                 log.log(Level.SEVERE, "this coordinates are filled with FieldObject", result);
             }
