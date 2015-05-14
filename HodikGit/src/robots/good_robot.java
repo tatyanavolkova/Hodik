@@ -17,14 +17,14 @@ import interpretator.Interpretator;
  * @author jbenua
  */
 public class good_robot extends Field_object{
-    public int xp;
+    public int HP;
     Unit robot;
     public Direction dir;
     
-    good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int x, Direction d, Unit r)
+    public good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int h, Direction d, Unit r)
     {
         super(a, i, in, coord);
-        xp=x;
+        HP=h;
         dir=d;
         robot=r;
     }
@@ -38,6 +38,21 @@ public class good_robot extends Field_object{
     {
         super.show_info();
         System.out.println("Name: "+ robot.name);
-        System.out.println("XP: " + xp);
+        System.out.println("HP: " + HP);
+    }
+
+    @Override
+    public String getType() {
+        return "robot";
+    }
+
+    @Override
+    public String getActtype() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDamage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

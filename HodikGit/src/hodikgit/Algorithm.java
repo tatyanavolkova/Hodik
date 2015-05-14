@@ -27,6 +27,10 @@ public class Algorithm {
         path=p;
         state=1;
     }
+    public String getPath()
+    {
+        return path;
+    }
     public int getState()
     {
         return state;

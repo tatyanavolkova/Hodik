@@ -27,7 +27,11 @@ public class Field
     {
         return hex.get(coord)==null;
     }
-
+    public HashMap<Coordinate, Field_object> getHex()
+    {
+        return hex;
+    }
+    
     public Field(int width, int height) 
     {
 		this.width = width;
@@ -39,9 +43,6 @@ public class Field
 		this.width = width;
 		this.height = height;
     }   
-   
-
- 
     public int getWidth()
     {
         return this.width;

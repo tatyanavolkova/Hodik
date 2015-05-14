@@ -23,13 +23,28 @@ public class Obstacles extends Field_object {
     
     public void damageRobot(good_robot gr)
     {
-        gr.xp-=damage;
+        gr.HP-=damage;
     }
     
     @Override
     public void show_info()
     {
         super.show_info();
+    }
+
+    @Override
+    public String getType() {
+        return "obstacle";
+    }
+
+    @Override
+    public String getActtype() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDamage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

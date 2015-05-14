@@ -21,8 +21,12 @@ import org.xml.sax.SAXException;
  */
 public class loadLevel 
 {
-    public Info info = new Info();
-    mobInfo mInfo = new mobInfo();
+    Info info = new Info();
+    int mX = 0;
+    int mY = 0;
+    int mHP = 0;
+    String mTYPE = new String();
+    String mNAME = new String();
     int k=0;
     int t=0;
     boolean ind=true;
@@ -101,8 +105,8 @@ public class loadLevel
         }
         else
         {
-            mInfo.x=Integer.valueOf(el.getAttribute("x"));
-            mInfo.y=Integer.valueOf(el.getAttribute("y"));
+            mX=Integer.valueOf(el.getAttribute("x"));
+            mY=Integer.valueOf(el.getAttribute("y"));
             ind=false;
         }
         addHP(character, ind);
@@ -125,7 +129,7 @@ public class loadLevel
             info.HP=Integer.valueOf(el.getAttribute("life"));
         }
         else
-            mInfo.hp=Integer.valueOf(el.getAttribute("life")); 
+            mHP=Integer.valueOf(el.getAttribute("life")); 
     }
     
     private void addMobs(Node level)
@@ -139,8 +143,8 @@ public class loadLevel
                 {
                     Element el = (Element) mobs.item(i);   
                     System.out.println("Mob's type: " + el.getAttribute("type"));
-                    mInfo.type="mob";
-                    mInfo.name=el.getAttribute("type");
+                    mTYPE="mob";
+                    mNAME=el.getAttribute("type");
                     addCoordinates(mobs.item(i));
                     System.out.println("Mob added" + "\n");
                 }
@@ -148,14 +152,14 @@ public class loadLevel
                 {
                     Element el = (Element) mobs.item(i);   
                     System.out.println("Obstacle's type: " + el.getAttribute("type"));
-                    mInfo.type="obstacle";
-                    mInfo.name=el.getAttribute("type");
+                    mTYPE="obstacle";
+                    mNAME=el.getAttribute("type");
                     addCoordinates(mobs.item(i));
                     System.out.println("Obstacle added" + "\n");
                 }
-                info.mob.add(k, mInfo);
-                k++;
-                
+                mobInfo mInfo = new mobInfo(mNAME,mTYPE,mX,mY,mHP);
+                info.mob.add(k,mInfo);
+                k++;  
             }
         }
     }
