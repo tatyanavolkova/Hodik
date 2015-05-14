@@ -23,7 +23,7 @@ public class Obstacles extends Field_object {
     
     public void damageRobot(good_robot gr)
     {
-        gr.xp-=damage;
+        gr.HP-=damage;
     }
     
     @Override
