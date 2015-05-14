@@ -79,8 +79,8 @@ public class Unit {
         System.out.println("Launching program '"+ n+"'...");
         Algorithm alg=progs.get(n);
         good_robot cur=robots.get(rob);
-        Interpretator in=cur.getInterpr();
-        in.translate(alg.getPath(), cur);
+        // Interpretator in=cur.getInterpr();
+        alg.translate(alg.getname(), alg.getPath(), cur);
     }  
     public void del_prog(String n)
     {

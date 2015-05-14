@@ -41,6 +41,11 @@ public class Coordinate
     {
         return "("+x+"; "+y+")";
     }
+//    toXML(ArrayList<>)
+//    {
+//        хз вообще что, но для Кати:)
+//        координаты
+//    }
 
 @Override
 public int hashCode() 

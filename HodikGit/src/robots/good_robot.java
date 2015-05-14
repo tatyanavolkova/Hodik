@@ -55,4 +55,10 @@ public class good_robot extends Field_object{
     public int getDamage() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+//    toXML(ArrayList<>)
+//    {
+//        хз вообще что, но для Кати:)
+//        имя робота, HP, соординаты
+//    }
 }
