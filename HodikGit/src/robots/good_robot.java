@@ -21,7 +21,7 @@ public class good_robot extends Field_object{
     Unit robot;
     public Direction dir;
     
-    good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int h, Direction d, Unit r)
+    public good_robot(Field a, Integrator i, Interpretator in, Coordinate coord, int h, Direction d, Unit r)
     {
         super(a, i, in, coord);
         HP=h;

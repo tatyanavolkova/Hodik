@@ -26,7 +26,7 @@ public class Unit {
     Map<String, Algorithm> progs;
     ArrayList <good_robot> robots;
     
-    Unit(String n)
+    public Unit(String n)
     {
         name=n;
         robots=new ArrayList();
