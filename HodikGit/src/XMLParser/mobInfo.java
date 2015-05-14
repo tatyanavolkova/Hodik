@@ -18,11 +18,18 @@ public class mobInfo
     int x;
     int y;
     int hp;
-    public mobInfo() 
+
+    public mobInfo(String name, String type, int x, int y, int hp) 
     {      
-        this.name = new String();
-        this.type = new String();
+        this.name = name;
+        this.type = type;
+        this.x=x;
+        this.y=y;
+        this.hp=hp;
     }
+    
+    public mobInfo(){}
+
     public void setCoords(Coordinate c) 
     {      
         x=c.getX();
