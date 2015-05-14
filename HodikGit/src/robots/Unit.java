@@ -32,6 +32,16 @@ public class Unit {
         robots=new ArrayList();
         progs=new HashMap<>();
     }
+    good_robot getAvatar(Field a)
+    {
+        for (good_robot i : robots)
+        {
+            if (i.getField()==a)
+                return i;
+        }
+        return null;
+    }
+    
     void add_robot(Field a, Integrator i, Interpretator in, Coordinate coord, Direction d,  int xp){
         good_robot r=new good_robot(a, i, in, coord, xp, d, this);
         robots.add(r);
