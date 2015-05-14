@@ -5,6 +5,7 @@
  */
 package hodikgit;
 import java.util.HashMap;
+import interpretator.*;
 /**
  *
  * @author NS
@@ -12,9 +13,10 @@ import java.util.HashMap;
 public class Field
 {
     int level=0;
-    HashMap<Coordinate, Field_object> hex = new HashMap<>();
+    public HashMap<Coordinate, Field_object> hex = new HashMap<>();
     public int width;
     public int height;
+    
 
     public boolean isFilled(Coordinate coord)
     {
@@ -34,6 +36,11 @@ public class Field
     public HashMap<Coordinate, Field_object> getHex()
     {
         return hex;
+    }
+    
+    public void addHash(int x, int y, Integrator i, Interpretator interp, String ind)
+    {
+           //добавить возможность пополнять список
     }
     
     public Field(int width, int height) 
