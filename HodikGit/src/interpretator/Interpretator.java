@@ -42,7 +42,7 @@ public class Interpretator {
         iterator = cmdList.iterator();
     }
 
-    void checkResult(String result) {
+    String checkResult(String result) {
         String[] parts = result.split(" ");
         if (parts[0].equals("stepTo")) {
             Coordinate newC = new Coordinate(Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
@@ -52,14 +52,16 @@ public class Interpretator {
                 }
                 else{
                     log.log(Level.SEVERE, "this coordinates are out of FIELD", result);
+                    return "this coordinates are out of FIELD "+result;
                 }
             } else {
-                log.log(Level.SEVERE, "this coordinates are filled with FieldObject", result);
-            }
-
+                log.log(Level.SEVERE, "this coordinates are filled with FieldObject ", result);
+                return "this coordinates are filled with FieldObject "+result;
+            }   
         }
         System.out.println(result);
         log.log(Level.FINE, result);
+        return result;
     }
 
     public void Run() {
